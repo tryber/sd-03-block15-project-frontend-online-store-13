@@ -20,9 +20,7 @@ class Cart extends React.Component {
         </div>
         <div className="empty-cart">
           <img src={empty} alt="Empty Box" className="empty-image" />
-          <h3 data-testid="shopping-cart-empty-message">
-            Seu carrinho está vazio
-          </h3>
+          <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
         </div>
         <Switch>
           <Route exact path="/" />

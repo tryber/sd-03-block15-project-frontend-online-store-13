@@ -1,16 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Cart from './Cart';
 import CartButton from './cartButton';
 import './App.css';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <CartButton />
-      </div>
+      <CartButton />  
+      <Cart />
     </Router>
-
   );
 }
 
