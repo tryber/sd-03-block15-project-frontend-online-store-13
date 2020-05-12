@@ -19,7 +19,7 @@ class FilterCategory extends React.Component {
     console.log(categories);
     return (
       <div>
-        <div className="categoryList">
+        <div className="category-list">
           {categories.map(({ name, id }) => (
             <div data-testid="category" key={id}>
               <label htmlFor={id}>
