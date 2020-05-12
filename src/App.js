@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import CartButton from './cartButton';
-import Cart from './Cart';
 import './App.css';
 
 function App() {

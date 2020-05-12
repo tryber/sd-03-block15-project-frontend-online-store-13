@@ -9,13 +9,13 @@ class CartButton extends React.Component {
     return (
       <div data-testid="shopping-cart-button">
         <Link to="/cart">
-          <img src={cartIcon} className="cart-icon" />
+          <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
         </Link>
         <Switch>
           <Route exact path="/cart" component={Cart} />
         </Switch>
       </div>
-    )
+    );
   }
 }
 

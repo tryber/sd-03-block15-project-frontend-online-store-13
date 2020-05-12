@@ -4,7 +4,7 @@
   width: 30px;
 }
 
-.cart-icon-name{
+.cart-icon-name {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -12,14 +12,14 @@
   width: 17%;
 }
 
-.cart-icon{
+.cart-icon {
   height: 40px;
 }
 
-.empty-cart{
+.empty-cart {
   text-align: center;
 }
 
-.empty-image{
+.empty-image {
   height: 150px;
 }
