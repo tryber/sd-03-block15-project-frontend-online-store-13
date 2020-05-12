@@ -6,8 +6,7 @@ import SearchBar from './pages/HomePage';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <header className="App-header" />
       <Router>
         <Switch>
           <Route exact path="/" component={SearchBar} />

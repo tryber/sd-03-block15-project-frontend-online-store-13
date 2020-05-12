@@ -5,7 +5,9 @@ class SearchBar extends Component {
     return (
       <div>
         <input type="text" id="searchText" />
-        <p data-testid="home-initial-message">Digite algum termo de pesquisa ou escolha uma categoria.</p>
+        <p data-testid="home-initial-message">
+          Digite algum termo de pesquisa ou escolha uma categoria.
+        </p>
       </div>
     );
   }
