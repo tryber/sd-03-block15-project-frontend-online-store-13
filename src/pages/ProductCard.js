@@ -10,7 +10,7 @@ class ProductCard extends React.Component {
         <p>{title}</p>
         <img src={thumbnail} alt="Product" />
         <p>{`R$${price.toFixed(2)}`}</p>
-        <Link to={`/products/${id}`}>VER DETALHES</Link>
+        <Link to={`/products/${id}`} data-testid="product-detail-link" >VER DETALHES</Link>
       </div>
     );
   }
