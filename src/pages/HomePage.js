@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
   clickSearch() {
     getProductsFromCategoryAndQuery(null, this.state.typedSearch).then((answer) => {
       this.setState({
-        answer: answer,
+        answer,
         ableToSearch: true,
       });
     });
