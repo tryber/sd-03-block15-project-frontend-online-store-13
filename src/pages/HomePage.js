@@ -1,6 +1,6 @@
 import React from 'react';
-import './HomePage.css';
 import { Link } from 'react-router-dom';
+import './HomePage.css';
 import cartIcon from '../images/cart-icon.png';
 
 class SearchBar extends React.Component {

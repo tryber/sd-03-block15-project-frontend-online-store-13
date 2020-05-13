@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import returnIcon from '../images/return.png';
 import empty from '../images/empty-cart.png';
 import cartIcon from '../images/cart-icon.png';
 import './Cart.css';
-import { Link } from 'react-router-dom';
 
 class Cart extends React.Component {
   render() {
