@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={SearchBar} />
-          <Route path="/" component={FilterCategory} />;
+          <Route path="/" component={FilterCategory} />
         </Switch>
       </Router>
     </div>
