@@ -1,4 +1,15 @@
+.searchIcon {
+  height: 15px;
+}
+
 .cart-icon {
   height: 40px;
   width: auto;
+}
+
+input {
+  border-radius: 5px; 
+  height: 20px;
+  text-align: center;
+  width: 400px;
 }
