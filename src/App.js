@@ -12,6 +12,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={SearchBar} />
           <Route path="/cart" component={Cart} />
+          {/* <Route path="/products/:id" component={ProductDetails} /> */}
         </Switch>
       </Router>
     </div>
