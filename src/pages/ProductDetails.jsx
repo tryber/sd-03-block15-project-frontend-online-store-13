@@ -1,12 +1,34 @@
 import React from 'react';
-import product from './dataTest';
 import './ProductDetails.css';
+import * as api from '../services/api';
 
 class ProductDetails extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      product: {},
+      attributes: [],
+    };
+  }
+
+  componentDidMount() {
+    const { category, id } = this.props.match.params;
+    console.log(category);
+    api.getProductsFromCategoryAndQuery(null, category).then((resp) => {
+      const productDetails = resp.results.find((e) => e.id === id);
+      this.setState({
+        product: productDetails,
+        attributes: productDetails.attributes,
+      });
+    });
+    api.getCategories().then((resp) => {
+      console.log(resp);
+    });
+  }
+
   render() {
-    const { title, price, thumbnail } = product.results[0];
-    const productSpec = product.results[0].attributes;
-    console.log(product);
+    const { product, attributes } = this.state;
+    const { title, price, thumbnail } = product;
     return (
       <div className="product-details-page-container">
         <div className="product-details-h1-name">
@@ -20,7 +42,7 @@ class ProductDetails extends React.Component {
           <div className="product-details-right">
             <h3>Especificações Técnicas</h3>
             <ul>
-              {productSpec.map((e) => (
+              {attributes.map((e) => (
                 <li key={e.id}>{`${e.name}: ${e.value_name}`}</li>
               ))}
             </ul>
