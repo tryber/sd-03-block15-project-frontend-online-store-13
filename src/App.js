@@ -5,7 +5,6 @@ import {
   Switch,
 } from 'react-router-dom';
 import './App.css';
-import SearchBar from './pages/HomePage';
 import FilterCategory from './components/FilterCategory';
 
 function App() {
@@ -14,8 +13,7 @@ function App() {
       <header className="App-header" />
       <Router>
         <Switch>
-          <Route exact path="/" component={SearchBar} />
-          <Route path="/sss" component={FilterCategory} />
+          <Route path="/" component={FilterCategory} />
         </Switch>
       </Router>
     </div>
