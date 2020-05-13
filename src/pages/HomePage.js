@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import { getProductsFromCategoryAndQuery } from '../services/api';
 import './HomePage.css';
 import cartIcon from '../images/cart-icon.png';
 import search from '../images/search.png'
@@ -39,7 +39,12 @@ class SearchBar extends React.Component {
     return (
       <div>
         <div>
-          <input type="text" id="searchText" value={this.state.typedSearch} onChange={this.changingSearch} data-testid="query-input"/>
+          <input 
+            type="text" 
+            id="searchText" 
+            value={this.state.typedSearch} 
+            onChange={this.changingSearch} data-testid="query-input"
+          />
           <button onClick={this.clickSearch} data-testid="query-button">
             <img src={search} className="searchIcon"/>
           </button>
