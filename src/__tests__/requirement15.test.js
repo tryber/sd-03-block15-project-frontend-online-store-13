@@ -14,7 +14,7 @@ api.getProductsFromCategoryAndQuery.mockImplementation(
 );
 
 describe('Requisito 15', () => {
-  it.skip('should show free shipping information', async () => {
+  it('should show free shipping information', async () => {
     render(<App />);
     await waitFor(() => expect(api.getCategories).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);

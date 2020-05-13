@@ -2,7 +2,7 @@ import * as api from '../services/api';
 import mockedCategoriesResult from '../__mocks__/categories';
 
 describe('Requisito 1', () => {
-  it.skip('getCategories', () => {
+  it('getCategories', () => {
     const mockFetchPromise = Promise.resolve({
       json: () => Promise.resolve(mockedCategoriesResult)
     });
@@ -16,7 +16,7 @@ describe('Requisito 1', () => {
     });
   });
 
-  it.skip('getProductsFromCategoryAndQuery', () => {
+  it('getProductsFromCategoryAndQuery', () => {
     const categoryId = 'category1';
     const query = 'my-query';
     const successResponseBody = {};

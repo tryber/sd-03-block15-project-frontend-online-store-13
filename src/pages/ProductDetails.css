@@ -1,0 +1,31 @@
+.product-details-page-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  border: 1px solid black;
+  width: auto;
+}
+
+.produc-details-contents {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-details-h1-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.product-details-right {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 2px;
+}
+
+.product-details-left {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 2px
+}

@@ -1,21 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getProductsFromCategoryAndQuery } from '../services/api';
+import { getProductsFromCategoryAndQuery, getCategories } from '../services/api';
 import './HomePage.css';
 import cartIcon from '../images/cart-icon.png';
 import search from '../images/search.png';
 import ProductList from './ProductList';
+import FilterCategory from '../components/FilterCategory';
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       typedSearch: '',
+      categories: [],
       ableToSearch: false,
       answer: null,
     };
     this.clickSearch = this.clickSearch.bind(this);
     this.changingSearch = this.changingSearch.bind(this);
+  }
+
+  componentDidMount() {
+    getCategories().then((resp) => {
+      this.setState({ categories: resp });
+    });
+    getProductsFromCategoryAndQuery(null, 'livro').then((a) => {
+      console.log(a);
+    });
   }
 
   changingSearch(event) {
@@ -55,9 +66,10 @@ class SearchBar extends React.Component {
               Digite algum termo de pesquisa ou escolha uma categoria.
             </p>
           :
-            <ProductList apiAnswer={this.state.answer} />
+            <ProductList search={this.state.typedSearch} apiAnswer={this.state.answer} />
           }
         </div>
+        <FilterCategory categories={this.state.categories} />
       </div>
     );
   }

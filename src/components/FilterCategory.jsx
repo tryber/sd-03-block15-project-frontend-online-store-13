@@ -1,21 +1,8 @@
 import React from 'react';
-import { getCategories } from '../services/api';
 
 class FilterCategory extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { categories: [] };
-  }
-
-  componentDidMount() {
-    getCategories()
-      .then((categories) => {
-        this.setState({ categories });
-      });
-  }
-
   render() {
-    const { categories } = this.state;
+    const { categories } = this.props;
     return (
       <div>
         <div className="category-list">
