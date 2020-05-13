@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
 import './App.css';
 import SearchBar from './pages/HomePage';
+import Quantity from './components/Quantity';
+import AddToCart from './components/AddToCart';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={SearchBar} />
           <Route path="/cart" component={Cart} />
+          <Route path="/qtd" component={Quantity} />
+          <Route path="/add" component={AddToCart} />
         </Switch>
       </Router>
     </div>
