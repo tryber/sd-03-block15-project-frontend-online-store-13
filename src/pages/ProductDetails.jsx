@@ -1,5 +1,6 @@
 import React from 'react';
 import product from './dataTest';
+import './ProductDetails.css';
 
 class ProductDetails extends React.Component {
   render() {
@@ -7,19 +8,23 @@ class ProductDetails extends React.Component {
     const productSpec = product.results[0].attributes;
     console.log(product);
     return (
-      <div>
-        <div>
+      <div className="product-details-page-container">
+        <div className="product-details-h1-name">
           <h1 data-testid="product-detail-name">{title}</h1>
           <h2>{`R$ ${price}`}</h2>
-          <img src={thumbnail} alt={`Foto do ${title}`} />
         </div>
-        <div>
-          <h3>Especificações Técnicas</h3>
-          <ul>
-            {productSpec.map((e) => (
-              <li>{`${e.name}: ${e.value_name}`}</li>
-            ))}
-          </ul>
+        <div className="produc-details-contents">
+          <div className="product-details-left">
+            <img src={thumbnail} alt={`Foto do ${title}`} />
+          </div>
+          <div className="product-details-right">
+            <h3>Especificações Técnicas</h3>
+            <ul>
+              {productSpec.map((e) => (
+                <li key={e.id}>{`${e.name}: ${e.value_name}`}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     );
