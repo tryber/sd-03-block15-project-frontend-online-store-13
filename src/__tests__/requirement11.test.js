@@ -14,7 +14,7 @@ api.getProductsFromCategoryAndQuery.mockImplementation(
 );
 
 describe('Requisito 11', () => {
-  it.skip('evaluate product from product details page', async () => {
+  it('evaluate product from product details page', async () => {
     const evaluationContent = 'Esta é uma avaliação sobre o produto realizada na tela de detalhe.';
     render(<App />);
     await waitFor(() => expect(api.getCategories).toHaveBeenCalled());

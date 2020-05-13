@@ -14,7 +14,7 @@ api.getProductsFromCategoryAndQuery.mockImplementation(
 );
 
 describe('Requisito 13', () => {
-  it.skip('should see the size of shopping cart from product list page', async () => {
+  it('should see the size of shopping cart from product list page', async () => {
     render(<App />);
     await waitFor(() => expect(api.getCategories).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);

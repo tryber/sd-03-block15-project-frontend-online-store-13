@@ -14,7 +14,7 @@ api.getProductsFromCategoryAndQuery.mockImplementation(
 );
 
 describe('Requisito 5', () => {
-  it.skip('should search products and show them in the page', async () => {
+  it('should search products and show them in the page', async () => {
     render(<App />);
     fireEvent.change(screen.getByTestId('query-input'), { target: { value: 'livro' }});
     fireEvent.click(screen.getByTestId('query-button'));

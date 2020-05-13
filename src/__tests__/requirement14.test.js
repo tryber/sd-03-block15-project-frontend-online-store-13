@@ -14,7 +14,7 @@ api.getProductsFromCategoryAndQuery.mockImplementation(
 );
 
 describe('Requisito 14', () => {
-  it.skip('should increase quantity in shopping cart list until the availability quantity', async () => {
+  it('should increase quantity in shopping cart list until the availability quantity', async () => {
     render(<App />);
     await waitFor(() => expect(api.getCategories).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);
