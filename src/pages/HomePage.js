@@ -1,6 +1,5 @@
 import React from 'react';
 import FilterCategory from '../components/FilterCategory';
-import { getCategories } from '../services/api';
 
 class SearchBar extends React.Component {
 
