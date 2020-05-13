@@ -4,20 +4,18 @@ class Quantity extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      counter: 1
-    }
+    this.state = { counter: 1, };
 
-    this.onIncrement = this.onIncrement.bind(this)
-    this.onDecrement = this.onDecrement.bind(this)
+    this.onIncrement = this.onIncrement.bind(this);
+    this.onDecrement = this.onDecrement.bind(this);
   }
 
   onIncrement() {
-    this.setState(state => ({ counter: state.counter + 1 }))
+    this.setState((state) => ({ counter: state.counter + 1 }));
   }
 
   onDecrement() {
-    this.setState(state => ({ counter: Math.max(state.counter - 1, 1) }))
+    this.setState((state) => ({ counter: Math.max(state.counter - 1, 1) }));
   }
 
   render() {
@@ -27,7 +25,7 @@ class Quantity extends React.Component {
         <p>{this.state.counter}</p>
         <button onClick={this.onIncrement} type="button"> + </button>
       </div>
-    )
+    );
   }
 }
 
