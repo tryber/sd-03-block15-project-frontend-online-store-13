@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router,
+import {
+  BrowserRouter as Router,
   Route,
-  Switch } from 'react-router-dom';
+  Switch,
+} from 'react-router-dom';
 import './App.css';
 import SearchBar from './pages/HomePage';
 import FilterCategory from './components/FilterCategory';
@@ -12,8 +14,8 @@ function App() {
       <header className="App-header" />
       <Router>
         <Switch>
-          <Route exact path="/" component={SearchBar} />
           <Route path="/" component={FilterCategory} />
+          <Route exact path="/" component={SearchBar} />
         </Switch>
       </Router>
     </div>
