@@ -7,13 +7,16 @@ class Quantity extends React.Component {
     this.state = {
       counter: 1
     }
+
+    this.onIncrement = this.onIncrement.bind(this)
+    this.onDecrement = this.onDecrement.bind(this)
   }
 
-  onIncrement = () => {
+  onIncrement() {
     this.setState(state => ({ counter: state.counter + 1 }))
   }
 
-  onDecrement = () => {
+  onDecrement() {
     this.setState(state => ({ counter: Math.max(state.counter - 1, 1) }))
   }
 
