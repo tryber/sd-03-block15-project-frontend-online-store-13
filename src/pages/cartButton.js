@@ -1,8 +1,7 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './cartButton.css';
-import cartIcon from './images/cart-icon.png';
-import Cart from './Cart';
+import cartIcon from '../images/cart-icon.png';
 
 class CartButton extends React.Component {
   render() {
@@ -11,9 +10,6 @@ class CartButton extends React.Component {
         <Link to="/cart">
           <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
         </Link>
-        <Switch>
-          <Route exact path="/cart" component={Cart} />
-        </Switch>
       </div>
     );
   }

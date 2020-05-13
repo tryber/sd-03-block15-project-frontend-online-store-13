@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import returnIcon from './images/return.png';
-import empty from './images/empty-cart.png';
-import cartIcon from './images/cart-icon.png';
+import returnIcon from '../images/return.png';
+import empty from '../images/empty-cart.png';
+import cartIcon from '../images/cart-icon.png';
 import './Cart.css';
 
 class Cart extends React.Component {
