@@ -14,6 +14,7 @@ class SearchBar extends React.Component {
         <Link to="/cart" data-testid="shopping-cart-button">
           <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
         </Link>
+        <Link to="/qtd">Quantity</Link>
       </div>
     );
   }
