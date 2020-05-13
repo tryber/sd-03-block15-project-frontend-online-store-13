@@ -4,7 +4,7 @@ class Quantity extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { counter: 1, };
+    this.state = { counter: 1 };
 
     this.onIncrement = this.onIncrement.bind(this);
     this.onDecrement = this.onDecrement.bind(this);
