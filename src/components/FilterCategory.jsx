@@ -1,5 +1,5 @@
 import React from 'react';
-import * as api from '../services/api';
+import { getCategories } from '../services/api';
 
 class FilterCategory extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class FilterCategory extends React.Component {
   }
 
   componentDidMount() {
-    api.getCategories()
+    getCategories()
       .then((categories) => {
         this.setState({ categories });
       });
@@ -16,7 +16,6 @@ class FilterCategory extends React.Component {
 
   render() {
     const { categories } = this.state;
-    console.log(categories);
     return (
       <div>
         <div className="category-list">

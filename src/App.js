@@ -14,8 +14,8 @@ function App() {
       <header className="App-header" />
       <Router>
         <Switch>
-          <Route path="/" component={FilterCategory} />
           <Route exact path="/" component={SearchBar} />
+          <Route path="/sss" component={FilterCategory} />
         </Switch>
       </Router>
     </div>
