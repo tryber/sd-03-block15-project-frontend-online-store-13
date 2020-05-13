@@ -20,13 +20,13 @@ class SearchBar extends React.Component {
 
   changingSearch(event) {
     const input = event.target;
-    this.setState({typedSearch: input.value});
+    this.setState({ typedSearch: input.value });
   }
 
   clickSearch() {
     getProductsFromCategoryAndQuery(null, this.state.typedSearch).then((answer) => {
       this.setState({
-        answer: answer.results,
+        answer: answer,
         ableToSearch: true,
       });
     });
@@ -43,7 +43,7 @@ class SearchBar extends React.Component {
             onChange={this.changingSearch} data-testid="query-input"
           />
           <button onClick={this.clickSearch} data-testid="query-button">
-            <img src={search} className="searchIcon" alt="Search Icon"/>
+            <img src={search} className="searchIcon" alt="Search Icon" />
           </button>
           <Link to="/cart" data-testid="shopping-cart-button">
             <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
@@ -55,7 +55,7 @@ class SearchBar extends React.Component {
               Digite algum termo de pesquisa ou escolha uma categoria.
             </p>
           :
-          <ProductList apiAnswer={this.state.answer} />
+            <ProductList apiAnswer={this.state.answer} />
           }
         </div>
       </div>

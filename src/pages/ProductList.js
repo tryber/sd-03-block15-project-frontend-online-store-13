@@ -5,14 +5,13 @@ import ProductCard from './ProductCard';
 class ProductList extends React.Component {
   render() {
     const products = this.props.apiAnswer;
-    console.log(this.props.apiAnswer);
-    if (!this.props.apiAnswer) {
+    if (this.props.apiAnswer.results.length == 0) {
       return (
         <p>Nenhum produto foi encontrado</p>
-      )
+      );
     }
     return (
-      products.map((product) => <ProductCard key={product.id} product={product} />)
+      products.results.map((product) => <ProductCard key={product.id} product={product} />)
     );
   }
 }
