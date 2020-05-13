@@ -1,18 +1,12 @@
 import React from 'react';
 
-class AddToCart extends React.Component {
-
-  addToCart () {
-    alert('Produto adicionado ao carrinho')
-  }
-
-  render() {
+function AddToCart (props) {
+  const { addToCart } = props;
     return (
-      <button data-testid="product-detail-add-to-cart" type="button" onClick={this.addToCart}>
+      <button data-testid="product-detail-add-to-cart" type="button" onClick={ addToCart }>
         Add To Cart
       </button>
-    )
-  }
+    );
 }
 
 export default AddToCart;
