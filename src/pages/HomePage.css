@@ -1,6 +1,6 @@
 .searchIcon {
   height: 15px;
-  width:  15px;
+  width: 15px;
 }
 
 .cart-icon {
@@ -9,14 +9,15 @@
 }
 
 input {
-  border-radius: 5px; 
+  border-radius: 5px;
   height: 20px;
   text-align: center;
   width: 400px;
 }
 
-.productsList{
+.productsList {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin-top: 40px;
+  flex-wrap: wrap;
 }

@@ -7,13 +7,13 @@ class ProductList extends React.Component {
     const products = this.props.apiAnswer;
     console.log(this.props.apiAnswer);
     if (!this.props.apiAnswer) {
-      return(
+      return (
         <p>Nenhum produto foi encontrado</p>
       )
     }
-    return(
-      products.results.map(product => <ProductCard key={product.id} product={product}/>)
-    )
+    return (
+      products.map((product) => <ProductCard key={product.id} product={product} />)
+    );
   }
 }
 
