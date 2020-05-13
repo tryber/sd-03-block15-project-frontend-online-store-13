@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import returnIcon from '../images/return.png';
 import empty from '../images/empty-cart.png';
 import cartIcon from '../images/cart-icon.png';
@@ -9,7 +9,7 @@ class Cart extends React.Component {
   render() {
     return (
       <div>
-        <header>
+       <header>
           <Link to="/">
             <img src={returnIcon} className="return-button" alt="Icon of an returning arrow" />
           </Link>
@@ -22,9 +22,6 @@ class Cart extends React.Component {
           <img src={empty} alt="Empty Box" className="empty-image" />
           <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
         </div>
-        <Switch>
-          <Route exact path="/" />
-        </Switch>
       </div>
     );
   }

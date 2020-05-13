@@ -1,5 +1,7 @@
 import React from 'react';
-import CartButton from './cartButton';
+import './HomePage.css';
+import { Link } from 'react-router-dom';
+import cartIcon from '../images/cart-icon.png';
 
 class SearchBar extends React.Component {
   render() {
@@ -9,7 +11,9 @@ class SearchBar extends React.Component {
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
-        <CartButton />
+        <Link to="/cart" data-testid="shopping-cart-button">
+          <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
+        </Link>
       </div>
     );
   }

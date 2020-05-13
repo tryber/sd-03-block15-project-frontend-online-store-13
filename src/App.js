@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={SearchBar} />
-          <Route exact path="/cart" component={Cart} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </Router>
     </div>
