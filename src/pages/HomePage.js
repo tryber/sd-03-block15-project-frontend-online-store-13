@@ -5,12 +5,14 @@ import './HomePage.css';
 import cartIcon from '../images/cart-icon.png';
 import search from '../images/search.png'
 import ProductList from './ProductList';
+import query from '../__mocks__/query';
 
 class SearchBar extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       typedSearch: '',
+      ableToSearch: false,
       answer: null,
     }
     this.clickSearch = this.clickSearch.bind(this);
@@ -26,7 +28,10 @@ class SearchBar extends React.Component {
 
   clickSearch() {
     const answer = getProductsFromCategoryAndQuery(null, this.state.typedSearch);
-    this.setState({ answer: answer.results })
+    this.setState({ 
+      answer: answer.results, 
+      ableToSearch: true,
+    })
     console.log(answer);
   }
 
@@ -42,11 +47,14 @@ class SearchBar extends React.Component {
             <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
           </Link>
         </div>
-        <div>
+        <div className="productsList" >
+          {!this.state.ableToSearch ? 
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
-          <ProductList apiAnswer={this.state.answer}/>
+          :
+          <ProductList apiAnswer={query}/>
+          }
         </div>
       </div>
     );

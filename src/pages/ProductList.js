@@ -1,11 +1,8 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-import query from '../__mocks__/query'
+
 
 class ProductList extends React.Component {
-  componentDidMount () {
-    
-  }
   render() {
     const products = this.props.apiAnswer;
     console.log(this.props.apiAnswer);

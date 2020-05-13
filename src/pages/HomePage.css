@@ -13,3 +13,9 @@ input {
   text-align: center;
   width: 400px;
 }
+
+.productsList{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
