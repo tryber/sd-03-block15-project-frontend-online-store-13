@@ -9,9 +9,7 @@ import './Cart.css';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: []
-    };
+    this.state = { items: [] };
   }
   render() {
     return (

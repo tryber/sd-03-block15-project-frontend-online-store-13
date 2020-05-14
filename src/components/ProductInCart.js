@@ -21,9 +21,9 @@ class ProductInCart extends React.Component {
           <div className="product" key={product.id}>
             <img src={product.thumbnail} alt="Product" />
             <p>{product.title}</p>
-            <ChangeQnt 
-              max={product.available_quantity} 
-              price={product.price} 
+            <ChangeQnt
+              max={product.available_quantity}
+              price={product.price}
               onChange={this.changeTotal}
             />
           </div>,
