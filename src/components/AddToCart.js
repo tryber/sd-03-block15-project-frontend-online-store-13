@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductDetails from '../pages/DetailPage';
+import ProductDetails from '../pages/ProductDetails';
 
 function AddToCart () {
   const addToCart = localStorage.setItem(new ProductDetails(), 0);
