@@ -15,7 +15,7 @@ class SumPrice extends React.Component {
   render() {
     return (
       <p>R${this.state.sum.toFixed(2)}</p>
-    )
+    );
   }
 }
 
