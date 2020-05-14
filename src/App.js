@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
 import './App.css';
-import Quantity from './components/Quantity';
-import AddToCart from './components/AddToCart';
+// import Quantity from './components/Quantity';
+// import AddToCart from './components/AddToCart';
 import ProductDetails from './pages/ProductDetails';
 import HomePage from './pages/HomePage';
 
