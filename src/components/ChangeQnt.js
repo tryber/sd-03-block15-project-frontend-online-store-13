@@ -1,4 +1,5 @@
 import React from 'react';
+import './ChangeQnt.css'
 
 class ChangeQnt extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class ChangeQnt extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='changeQtnComp'>
         <button data-testid="product-decrease-quantity" onClick={this.reduceQnt}> - </button>
         <p>{this.state.qnt}</p>
         <button data-testid="product-increase-quantity" onClick={this.increaseQnt}> + </button>

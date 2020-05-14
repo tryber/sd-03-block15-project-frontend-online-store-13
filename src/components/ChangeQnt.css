@@ -1,0 +1,7 @@
+.changeQtnComp {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  width: 100px;
+}

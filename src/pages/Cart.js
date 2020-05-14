@@ -33,13 +33,7 @@ class Cart extends React.Component {
             <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
           </div>
         :
-          <div>
-            {this.state.items.map((product) => <ProductInCart product={product} />)}
-            <p>Valor Total da Compra: R$</p>
-            <Link>
-              Finalizar Compra
-            </Link>
-          </div>
+          <ProductInCart products={this.state.items} />}
         }
       </div>
     );

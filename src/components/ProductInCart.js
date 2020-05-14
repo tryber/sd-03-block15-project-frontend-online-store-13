@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductInCart.css';
-import ChangeQnt from './ChangeQnt';
+import ProductCardInCart from './ProductCardInCart';
+import SumPrice from '../components/SumPrice';
 
 class ProductInCart extends React.Component {
   render() {
-    const { title, price, thumbnail, available_quantity: availableQnt } = this.props.product;
     return (
-      <div className="product" >
-        <img src={thumbnail} alt="Product" />
-        <p>{title}</p>
-        <ChangeQnt max={availableQnt} />
-        <p>{`R$${price.toFixed(2)}`}</p>
+      <div>
+        {this.props.products.map((product) =>
+          <ProductCardInCart product={product}/>
+        )}
+        <p>Valor Total da Compra: R$<SumPrice products={this.props.products}/></p>
+        <Link> Finalizar Compra </Link>
       </div>
     );
   }
