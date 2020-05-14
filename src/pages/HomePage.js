@@ -12,12 +12,12 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       typedSearch: '',
-      chosCategoryID: '',
+      chosCategoryID: null,
       categories: [],
       ableToSearch: false,
       answer: null,
     };
-    this.clickSearch = this.clickSearch.bind(this);
+    this.searchChange = this.searchChange.bind(this);
     this.choosedCategory = this.choosedCategory.bind(this);
   }
 
@@ -35,11 +35,16 @@ class HomePage extends React.Component {
   //   }
   // }
 
-  clickSearch(search = '', category = null) {
-    getProductsFromCategoryAndQuery(category, search).then((answer) => {
+  searchChange(search) {
+    this.setState({ typedSearch: search }, () => {
+      this.clickSearch();
+    });
+  }
+
+  clickSearch() {
+    const { typedSearch, chosCategoryID } = this.state;
+    getProductsFromCategoryAndQuery(chosCategoryID, typedSearch).then((answer) => {
       this.setState({
-        // typedSearch: search,
-        // chosCategory: cate
         answer,
         ableToSearch: true,
       });
@@ -47,7 +52,9 @@ class HomePage extends React.Component {
   }
 
   choosedCategory(id) {
-    this.setState({ chosCategoryID: id });
+    this.setState({ chosCategoryID: id }, () => {
+      this.clickSearch();
+    });
   }
 
   render() {
@@ -55,14 +62,14 @@ class HomePage extends React.Component {
     return (
       <div>
         <div className="searchbar-cart">
-          <SearchBar onClick={this.clickSearch} />
+          <SearchBar onClick={this.searchChange} />
           <Link to="/cart" data-testid="shopping-cart-button">
             <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
           </Link>
         </div>
         <div className="product">
           <div className="product-list-category">
-            <FilterCategory onChecked={this.choosedCategory} onClick={this.clickSearch} categories={categories} />
+            <FilterCategory onChecked={this.choosedCategory} categories={categories} />
             <div className="productsList">
               {!ableToSearch
                 ? <p data-testid="home-initial-message">

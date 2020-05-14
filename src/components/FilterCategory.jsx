@@ -3,7 +3,7 @@ import './FilterCategory.css';
 
 class FilterCategory extends React.Component {
   render() {
-    const { categories, onChecked, onClick } = this.props;
+    const { categories, onChecked } = this.props;
     return (
       <div>
         <div className="category-list">
