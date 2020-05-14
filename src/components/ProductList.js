@@ -15,8 +15,8 @@ class ProductList extends React.Component {
     }
     return (
       <div className="product-lst">
-        {products.results.map((prod) => 
-          <ProductCard search={search} key={prod.id} product={prod} />
+        {products.results.map((prod) =>
+          <ProductCard search={search} key={prod.id} product={prod} />,
         )}
       </div>
     );

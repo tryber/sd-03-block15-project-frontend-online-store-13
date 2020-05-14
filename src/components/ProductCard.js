@@ -22,7 +22,7 @@ class ProductCard extends React.Component {
         </Link>
         <button data-testid="product-add-to-cart"><Link
           to={{
-            pathname: "/cart",
+            pathname: '/cart',
             details: {
               product,
               qnt: 1,
