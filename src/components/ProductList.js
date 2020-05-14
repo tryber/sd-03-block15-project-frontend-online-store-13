@@ -4,9 +4,9 @@ import ProductCard from './ProductCard';
 
 class ProductList extends React.Component {
   render() {
-    const products = this.props.apiAnswer;
-    const { search } = this.props;
-    if (this.props.apiAnswer.results.length === 0) {
+    const { search, apiAnswer } = this.props;
+    const products = apiAnswer;
+    if (apiAnswer.results.length === 0) {
       return (
         <p>Nenhum produto foi encontrado</p>
       );

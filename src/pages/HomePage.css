@@ -8,11 +8,15 @@
   width: auto;
 }
 
-input {
+/* input {
   border-radius: 5px;
   height: 20px;
   text-align: center;
   width: 400px;
+} */
+
+.product-list-category {
+  display: flex;
 }
 
 .productsList {

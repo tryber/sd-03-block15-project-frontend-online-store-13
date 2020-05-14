@@ -4,8 +4,8 @@ import './ProductCard.css';
 
 class ProductCard extends React.Component {
   render() {
-    const { title, price, thumbnail, id } = this.props.product;
-    const { search } = this.props;
+    const { search, product } = this.props;
+    const { title, price, thumbnail, id } = product;
     return (
       <div data-testid="product" className="productContainer">
         <p>{title}</p>

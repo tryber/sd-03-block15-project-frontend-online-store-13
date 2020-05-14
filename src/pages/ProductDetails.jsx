@@ -13,7 +13,6 @@ class ProductDetails extends React.Component {
 
   componentDidMount() {
     const { category, id } = this.props.match.params;
-    console.log(category);
     api.getProductsFromCategoryAndQuery(null, category).then((resp) => {
       const productDetails = resp.results.find((e) => e.id === id);
       this.setState({

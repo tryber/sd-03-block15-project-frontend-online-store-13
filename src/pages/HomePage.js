@@ -4,10 +4,10 @@ import { getProductsFromCategoryAndQuery, getCategories } from '../services/api'
 import './HomePage.css';
 import cartIcon from '../images/cart-icon.png';
 import search from '../images/search.png';
-import ProductList from './ProductList';
+import ProductList from '../components/ProductList';
 import FilterCategory from '../components/FilterCategory';
 
-class SearchBar extends React.Component {
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,9 +24,6 @@ class SearchBar extends React.Component {
     getCategories().then((resp) => {
       this.setState({ categories: resp });
     });
-    getProductsFromCategoryAndQuery(null, 'livro').then((a) => {
-      console.log(a);
-    });
   }
 
   changingSearch(event) {
@@ -35,7 +32,8 @@ class SearchBar extends React.Component {
   }
 
   clickSearch() {
-    getProductsFromCategoryAndQuery(null, this.state.typedSearch).then((answer) => {
+    const { typedSearch } = this.state;
+    getProductsFromCategoryAndQuery(null, typedSearch).then((answer) => {
       this.setState({
         answer,
         ableToSearch: true,
@@ -44,35 +42,41 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    const { typedSearch, answer, categories, ableToSearch } = this.state;
     return (
       <div>
         <div>
           <input
             type="text"
             id="searchText"
-            value={this.state.typedSearch}
-            onChange={this.changingSearch} data-testid="query-input"
+            value={typedSearch}
+            onChange={this.changingSearch}
+            data-testid="query-input"
           />
-          <button onClick={this.clickSearch} data-testid="query-button">
+          <button type="button" onClick={this.clickSearch} data-testid="query-button">
             <img src={search} className="searchIcon" alt="Search Icon" />
           </button>
           <Link to="/cart" data-testid="shopping-cart-button">
             <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
           </Link>
         </div>
-        <div className="productsList" >
-          {!this.state.ableToSearch ?
-            <p data-testid="home-initial-message">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
-          :
-            <ProductList search={this.state.typedSearch} apiAnswer={this.state.answer} />
-          }
+        <div className="product">
+          <div className="product-list-category">
+            <FilterCategory categories={categories} />
+            <div className="productsList">
+              {!ableToSearch
+                ? <p data-testid="home-initial-message">
+                  Digite algum termo de pesquisa ou escolha uma categoria.
+                  </p>
+                :
+                <ProductList search={typedSearch} apiAnswer={answer} />
+              }
+            </div>
+          </div>
         </div>
-        <FilterCategory categories={this.state.categories} />
       </div>
     );
   }
 }
 
-export default SearchBar;
+export default HomePage;

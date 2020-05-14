@@ -24,7 +24,7 @@ describe('Requisito 13', () => {
     expect(screen.getByTestId('shopping-cart-size')).toHaveTextContent('2');
   });
 
-  it.skip('should see the size of shopping cart from product detail list page', async () => {
+  it('should see the size of shopping cart from product detail list page', async () => {
     render(<App />);
     await waitFor(() => expect(api.getCategories).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);

@@ -1,4 +1,5 @@
 import React from 'react';
+import './FilterCategory.css';
 
 class FilterCategory extends React.Component {
   render() {
