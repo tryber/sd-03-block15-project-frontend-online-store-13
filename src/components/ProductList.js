@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCard from './ProductCard';
+import './ProductList.css';
 
 class ProductList extends React.Component {
   render() {
@@ -13,7 +14,9 @@ class ProductList extends React.Component {
       );
     }
     return (
-      products.results.map((prod) => <ProductCard search={search} key={prod.id} product={prod} />)
+      <div className="product-lst">
+        {products.results.map((prod) => <ProductCard search={search} key={prod.id} product={prod} />)}
+      </div>
     );
   }
 }
