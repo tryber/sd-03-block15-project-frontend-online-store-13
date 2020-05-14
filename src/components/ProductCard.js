@@ -4,13 +4,14 @@ import './ProductCard.css';
 
 class ProductCard extends React.Component {
   render() {
-    const { title, price, thumbnail, id } = this.props.product;
+    const { search, product } = this.props;
+    const { title, price, thumbnail, id } = product;
     return (
-      <div data-testid="product" className="productContainer" >
+      <div data-testid="product" className="productContainer">
         <p>{title}</p>
         <img src={thumbnail} alt="Product" />
         <p>{`R$${price.toFixed(2)}`}</p>
-        <Link to={`/products/${id}`} data-testid="product-detail-link" >VER DETALHES</Link>
+        <Link to={`/${search}/${id}`} data-testid="product-detail-link">VER DETALHES</Link>
       </div>
     );
   }

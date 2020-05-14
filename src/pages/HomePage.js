@@ -1,31 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getProductsFromCategoryAndQuery } from '../services/api';
+import { getProductsFromCategoryAndQuery, getCategories } from '../services/api';
 import './HomePage.css';
 import cartIcon from '../images/cart-icon.png';
-import search from '../images/search.png';
-import ProductList from './ProductList';
+import ProductList from '../components/ProductList';
+import FilterCategory from '../components/FilterCategory';
+import SearchBar from '../components/SearchBar';
 
-class SearchBar extends React.Component {
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       typedSearch: '',
+      categories: [],
       ableToSearch: false,
       answer: null,
     };
     this.clickSearch = this.clickSearch.bind(this);
-    this.changingSearch = this.changingSearch.bind(this);
+    // this.changingSearch = this.changingSearch.bind(this);
   }
 
-  changingSearch(event) {
-    const input = event.target;
-    this.setState({ typedSearch: input.value });
+  componentDidMount() {
+    getCategories().then((resp) => {
+      this.setState({ categories: resp });
+    });
   }
 
-  clickSearch() {
-    getProductsFromCategoryAndQuery(null, this.state.typedSearch).then((answer) => {
+  // changingSearch(event) {
+  //   const input = event.target;
+  //   this.setState({ typedSearch: input.value });
+  // }
+
+  clickSearch(search) {
+    getProductsFromCategoryAndQuery(null, search).then((answer) => {
       this.setState({
+        typedSearch: search,
         answer,
         ableToSearch: true,
       });
@@ -33,34 +42,32 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    const { typedSearch, answer, categories, ableToSearch } = this.state;
     return (
       <div>
-        <div>
-          <input
-            type="text"
-            id="searchText"
-            value={this.state.typedSearch}
-            onChange={this.changingSearch} data-testid="query-input"
-          />
-          <button onClick={this.clickSearch} data-testid="query-button">
-            <img src={search} className="searchIcon" alt="Search Icon" />
-          </button>
+        <div className="searchbar-cart">
+          <SearchBar onClick={this.clickSearch} />
           <Link to="/cart" data-testid="shopping-cart-button">
             <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
           </Link>
         </div>
-        <div className="productsList" >
-          {!this.state.ableToSearch ?
-            <p data-testid="home-initial-message">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
-          :
-            <ProductList apiAnswer={this.state.answer} />
-          }
+        <div className="product">
+          <div className="product-list-category">
+            <FilterCategory categories={categories} />
+            <div className="productsList">
+              {!ableToSearch
+                ? <p data-testid="home-initial-message">
+                  Digite algum termo de pesquisa ou escolha uma categoria.
+                  </p>
+                :
+                <ProductList search={typedSearch} apiAnswer={answer} />
+              }
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default SearchBar;
+export default HomePage;
