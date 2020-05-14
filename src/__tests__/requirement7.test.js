@@ -18,7 +18,7 @@ describe('Requisito 7', () => {
     render(<App />);
     await waitFor(() => expect(api.getCategories).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);
-    // await waitFor(() => expect(api.getProductsFromCategoryAndQuery).toHaveBeenCalled());
+    await waitFor(() => expect(api.getProductsFromCategoryAndQuery).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('product-detail-link')[0]);
     await waitFor(() => expect(screen.getByTestId('product-detail-name')).toHaveTextContent(mockedQueryResult.results[0].title));
   });

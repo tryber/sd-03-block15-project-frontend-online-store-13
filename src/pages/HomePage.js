@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery, getCategories } from '../services/api';
 import './HomePage.css';
 import cartIcon from '../images/cart-icon.png';
-import ProductList from '../components/ProductList';
+import SearchControl from '../components/SearchControl';
 import FilterCategory from '../components/FilterCategory';
 import SearchBar from '../components/SearchBar';
 
@@ -26,14 +26,6 @@ class HomePage extends React.Component {
       this.setState({ categories: resp });
     });
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   const { typedSearch, chosCategory } = this.state;
-  //   if (prevState.typedSearch !== typedSearch
-  //     || prevState.chosCategory !== chosCategory) {
-  //     return this.clickSearch(typedSearch, chosCategory);
-  //   }
-  // }
 
   searchChange(search) {
     this.setState({ typedSearch: search }, () => {
@@ -71,13 +63,18 @@ class HomePage extends React.Component {
           <div className="product-list-category">
             <FilterCategory onChecked={this.choosedCategory} categories={categories} />
             <div className="productsList">
-              {!ableToSearch
+              <SearchControl
+                ableToSearch={ableToSearch}
+                answer={answer}
+                typedSearch={typedSearch}
+              />
+              {/* {!ableToSearch
                 ? <p data-testid="home-initial-message">
                   Digite algum termo de pesquisa ou escolha uma categoria.
                   </p>
                 :
                 <ProductList search={typedSearch} apiAnswer={answer} />
-              }
+              } */}
             </div>
           </div>
         </div>
