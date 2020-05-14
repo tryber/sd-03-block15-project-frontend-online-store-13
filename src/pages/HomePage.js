@@ -12,12 +12,13 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       typedSearch: '',
+      chosCategoryID: '',
       categories: [],
       ableToSearch: false,
       answer: null,
     };
     this.clickSearch = this.clickSearch.bind(this);
-    // this.changingSearch = this.changingSearch.bind(this);
+    this.choosedCategory = this.choosedCategory.bind(this);
   }
 
   componentDidMount() {
@@ -26,19 +27,27 @@ class HomePage extends React.Component {
     });
   }
 
-  // changingSearch(event) {
-  //   const input = event.target;
-  //   this.setState({ typedSearch: input.value });
+  // componentDidUpdate(prevProps, prevState) {
+  //   const { typedSearch, chosCategory } = this.state;
+  //   if (prevState.typedSearch !== typedSearch
+  //     || prevState.chosCategory !== chosCategory) {
+  //     return this.clickSearch(typedSearch, chosCategory);
+  //   }
   // }
 
-  clickSearch(search) {
-    getProductsFromCategoryAndQuery(null, search).then((answer) => {
+  clickSearch(search = '', category = null) {
+    getProductsFromCategoryAndQuery(category, search).then((answer) => {
       this.setState({
-        typedSearch: search,
+        // typedSearch: search,
+        // chosCategory: cate
         answer,
         ableToSearch: true,
       });
     });
+  }
+
+  choosedCategory(id) {
+    this.setState({ chosCategoryID: id });
   }
 
   render() {
@@ -53,7 +62,7 @@ class HomePage extends React.Component {
         </div>
         <div className="product">
           <div className="product-list-category">
-            <FilterCategory categories={categories} />
+            <FilterCategory onChecked={this.choosedCategory} onClick={this.clickSearch} categories={categories} />
             <div className="productsList">
               {!ableToSearch
                 ? <p data-testid="home-initial-message">
