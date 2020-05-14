@@ -1,3 +1,10 @@
+.qntPriceComp {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
 .changeQtnComp {
   align-items: center;
   display: flex;
