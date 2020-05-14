@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import returnIcon from '../images/return.png';
 import empty from '../images/empty-cart.png';
 import cartIcon from '../images/cart-icon.png';
+import ProductDetails from '../pages/DetailPage';
 import './Cart.css';
+
+localStorage.getItem(new ProductDetails(), 0);
 
 class Cart extends React.Component {
   render() {

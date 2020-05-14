@@ -1,9 +1,10 @@
 import React from 'react';
+import ProductDetails from '../pages/DetailPage';
 
-function AddToCart (props) {
-  const { addToCart } = props;
+function AddToCart () {
+  const addToCart = localStorage.setItem(new ProductDetails(), 0);
     return (
-      <button data-testid="product-detail-add-to-cart" type="button" onClick={ addToCart }>
+      <button data-testid="product-detail-add-to-cart" type="button" onClick={ () => addToCart }>
         Add To Cart
       </button>
     );
