@@ -21,7 +21,7 @@ class ChangeQnt extends React.Component {
     if (this.state.qnt > 1) {
       this.setState((state) => ({ qnt: state.qnt - 1 }));
       this.changePrice();
-      this.props.onChange(this.state.price);
+      this.props.onChange(-this.props.price);
     }
   }
 
@@ -29,7 +29,7 @@ class ChangeQnt extends React.Component {
     if (this.state.qnt < this.props.max) {
       this.setState((state) => ({ qnt: state.qnt + 1 }));
       this.changePrice();
-      this.props.onChange(this.state.price);
+      this.props.onChange(this.props.price);
     }
   }
 

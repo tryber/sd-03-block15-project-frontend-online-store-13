@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductInCart.css';
 import ChangeQnt from './ChangeQnt';
-import SumPrice from '../components/SumPrice';
 
 class ProductInCart extends React.Component {
   constructor(props) {
