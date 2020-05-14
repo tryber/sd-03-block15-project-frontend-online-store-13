@@ -16,8 +16,8 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={Cart} />
           <Route path="/:category/:id" component={ProductDetails} />
-          <Route path="/qtd" component={Quantity} /> {/* Only for tests */}
-          <Route path="/add" component={AddToCart} /> {/* Only for tests */}
+          {/* <Route path="/qtd" component={Quantity} /> Only for tests */}
+          {/* <Route path="/add" component={AddToCart} /> Only for tests */}
         </Switch>
       </Router>
     </div>
