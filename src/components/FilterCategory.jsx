@@ -10,7 +10,13 @@ class FilterCategory extends React.Component {
           {categories.map(({ name, id }) => (
             <div key={id}>
               <label htmlFor={id}>
-                <input data-testid="category" type="radio" onChange={() => onChecked(id)} name="categories" id={id} />
+                <input
+                  data-testid="category"
+                  type="radio"
+                  onChange={() => onChecked(id)}
+                  name="categories"
+                  id={id}
+                />
                 {name}
               </label>
             </div>
