@@ -32,7 +32,7 @@ class ProductDetails extends React.Component {
       <div className="product-details-page-container">
         <div className="product-details-h1-name">
           <h1 data-testid="product-detail-name">{title}</h1>
-          <h2>{`R$ ${price}`}</h2>
+          <h2>{`R$ ${Number(price).toFixed(2)}`}</h2>
         </div>
         <div className="produc-details-contents">
           <div className="product-details-left">
