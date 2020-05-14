@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProductDetails.css';
+import ProductReview from '../components/ProductReview'
 
 class ProductDetails extends React.Component {
   render() {
@@ -23,6 +24,7 @@ class ProductDetails extends React.Component {
             </ul>
           </div>
         </div>
+        <ProductReview />
       </div>
     );
   }
