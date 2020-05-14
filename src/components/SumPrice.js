@@ -3,15 +3,13 @@ import React from 'react';
 class SumPrice extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sum: 0,
-    }
+    this.state = { sum: 0 };
   }
 
   componentDidMount() {
-    this.props.products.map((product) => {
+    this.props.products.forEach((product) => {
       this.setState((state) => ({ sum: state.sum + product.price }));
-    })
+    });
   }
 
   render() {

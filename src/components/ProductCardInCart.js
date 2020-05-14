@@ -11,7 +11,7 @@ class ProductCardInCart extends React.Component {
         <ChangeQnt max={availableQnt} />
         <p>{`R$${price.toFixed(2)}`}</p>
       </div>
-    )
+    );
   }
 }
 

@@ -33,7 +33,7 @@ class Cart extends React.Component {
             <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
           </div>
         :
-          <ProductInCart products={this.state.items} />}
+          <ProductInCart products={this.state.items} />
         }
       </div>
     );

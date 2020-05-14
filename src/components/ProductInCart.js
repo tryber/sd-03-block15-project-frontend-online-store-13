@@ -9,9 +9,9 @@ class ProductInCart extends React.Component {
     return (
       <div>
         {this.props.products.map((product) =>
-          <ProductCardInCart product={product}/>
+          <ProductCardInCart product={product} />
         )}
-        <p>Valor Total da Compra: R$<SumPrice products={this.props.products}/></p>
+        <p>Valor Total da Compra: R$<SumPrice products={this.props.products} /></p>
         <Link> Finalizar Compra </Link>
       </div>
     );
