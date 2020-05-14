@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductDetails.css';
-import * as api from '../services/api';
+// import * as api from '../services/api';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -11,23 +11,23 @@ class ProductDetails extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const { category, id } = this.props.match.params;
-    api.getProductsFromCategoryAndQuery(null, category).then((resp) => {
-      const productDetails = resp.results.find((e) => e.id === id);
-      this.setState({
-        product: productDetails,
-        attributes: productDetails.attributes,
-      });
-    });
-    api.getCategories().then((resp) => {
-      console.log(resp);
-    });
-  }
+  // componentDidMount() {
+  //   const { search, id } = this.props.match.params;
+  //   console.log(this.props);
+  //   api.getProductsFromCategoryAndQuery(null, search).then((resp) => {
+  //     const productDetails = resp.results.find((e) => e.id === id);
+  //     this.setState({
+  //       product: productDetails,
+  //       attributes: productDetails.attributes,
+  //     });
+  //   });
+  //   api.getCategories().then((resp) => {
+  //     console.log(resp);
+  //   });
+  // }
 
   render() {
-    const { product, attributes } = this.state;
-    const { title, price, thumbnail } = product;
+    const { title, price, thumbnail, attributes } = this.props.location.details.product;
     return (
       <div className="product-details-page-container">
         <div className="product-details-h1-name">
