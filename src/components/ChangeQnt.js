@@ -4,13 +4,19 @@ import './ChangeQnt.css';
 class ChangeQnt extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      qnt: 1, 
+    this.state = {
+      qnt: 1,
       price: this.props.price,
     };
     this.reduceQnt = this.reduceQnt.bind(this);
     this.increaseQnt = this.increaseQnt.bind(this);
     this.changePrice = this.changePrice.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.onChange) {
+      this.props.onChange(this.state.price);
+    }
   }
 
   changePrice() {
@@ -33,15 +39,9 @@ class ChangeQnt extends React.Component {
     }
   }
 
-  componentDidMount() {
-    if (this.props.onChange) {
-      this.props.onChange(this.state.price);
-    }
-  }
-
   render() {
     return (
-      <div className='qntPriceComp'>
+      <div className="qntPriceComp">
         <div className="changeQtnComp">
           <button data-testid="product-decrease-quantity" onClick={this.reduceQnt}> - </button>
           <p>{this.state.qnt}</p>

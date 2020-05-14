@@ -5,14 +5,12 @@ import returnIcon from '../images/return.png';
 import empty from '../images/empty-cart.png';
 import cartIcon from '../images/cart-icon.png';
 import './Cart.css';
-import data from '../__mocks__/query';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // items: [],
-      items: data.results,
+      items: []
     };
   }
   render() {

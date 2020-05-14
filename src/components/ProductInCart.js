@@ -6,12 +6,12 @@ import ChangeQnt from './ChangeQnt';
 class ProductInCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { totalPrice: 0 }
+    this.state = { totalPrice: 0 };
     this.changeTotal = this.changeTotal.bind(this);
   }
 
   changeTotal(value) {
-    this.setState((state) => ({totalPrice: state.totalPrice + value}))
+    this.setState((state) => ({ totalPrice: state.totalPrice + value }));
   }
 
   render() {
@@ -21,7 +21,11 @@ class ProductInCart extends React.Component {
           <div className="product" key={product.id}>
             <img src={product.thumbnail} alt="Product" />
             <p>{product.title}</p>
-            <ChangeQnt max={product.available_quantity} price={product.price} onChange={this.changeTotal}/>
+            <ChangeQnt 
+              max={product.available_quantity} 
+              price={product.price} 
+              onChange={this.changeTotal}
+            />
           </div>,
         )}
         <p>Valor Total da Compra: R${this.state.totalPrice.toFixed(2)}</p>
