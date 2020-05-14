@@ -1,6 +1,5 @@
-.searchIcon {
-  height: 15px;
-  width: 15px;
+.searchbar-cart {
+  display: flex;
 }
 
 .cart-icon {

@@ -1,8 +1,8 @@
 .product-details-page-container {
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   margin-top: 100px;
-  border: 1px solid black;
   width: auto;
 }
 
@@ -27,5 +27,5 @@
 .product-details-left {
   border: 1px solid black;
   margin: 5px;
-  padding: 2px
+  padding: 2px;
 }
