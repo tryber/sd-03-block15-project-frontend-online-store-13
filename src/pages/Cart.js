@@ -11,9 +11,9 @@ class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //items: [],
+      // items: [],
       items: data.results,
-    }
+    };
   }
   render() {
     return (
@@ -29,17 +29,17 @@ class Cart extends React.Component {
         </div>
         {this.state.items.length === 0 ?
           <div className="empty-cart">
-          <img src={empty} alt="Empty Box" className="empty-image" />
-          <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
+            <img src={empty} alt="Empty Box" className="empty-image" />
+            <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
           </div>
         :
-        <div>
-          {this.state.items.map((product) => <ProductInCart product={product} />)}
-          <p>Valor Total da Compra: R$</p>
-          <Link>
-            Finalizar Compra
-          </Link>
-        </div>
+          <div>
+            {this.state.items.map((product) => <ProductInCart product={product} />)}
+            <p>Valor Total da Compra: R$</p>
+            <Link>
+              Finalizar Compra
+            </Link>
+          </div>
         }
       </div>
     );
