@@ -12,8 +12,8 @@ class Cart extends React.Component {
     this.state = { items: [] };
   }
 
-  componentDidMount() {
-    if(this.props.location.details) {
+  componentWillMount() {
+    if (this.props.location.details) {
       this.setState((state) => ({ items: [...state.items, this.props.location.details] }))
     }
   }
