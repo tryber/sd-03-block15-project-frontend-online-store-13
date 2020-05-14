@@ -47,6 +47,7 @@ class ProductDetails extends React.Component {
             </ul>
           </div>
         </div>
+        <button>Adicionar ao Carrinho</button>
       </div>
     );
   }
