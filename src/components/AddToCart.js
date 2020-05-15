@@ -13,12 +13,12 @@ class AddToCart extends React.Component {
   }
 
   render() {
-    if(this.state.redirect) {
-      return <Redirect to="/cart/" />
+    if (this.state.redirect) {
+      return <Redirect to="/cart/" />;
     }
     return (
       <button onClick={this.goToCart}>Adicionar ao Carrinho</button>
-    )
+    );
   }
 }
 
