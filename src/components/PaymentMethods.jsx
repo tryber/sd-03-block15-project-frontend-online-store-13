@@ -36,7 +36,13 @@ class PaymentMethods extends React.Component {
           <div>
             <h4>Boleto</h4>
             <label htmlFor="billet">
-              <input type="radio" onChange={this.handleChange} name="payMethod" id="billet" value="Boleto" />
+              <input
+                type="radio"
+                onChange={this.handleChange}
+                name="payMethod"
+                id="billet"
+                value="Boleto"
+              />
               <img src="" alt="Código de barra" />
             </label>
           </div>
