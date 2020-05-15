@@ -1,5 +1,7 @@
 import React from 'react';
 import './ProductDetails.css';
+import AddToCart from '../components/AddToCart';
+import Quantity from '../components/Quantity';
 // import * as api from '../services/api';
 
 class ProductDetails extends React.Component {
@@ -27,7 +29,7 @@ class ProductDetails extends React.Component {
   // }
 
   render() {
-    const { title, price, thumbnail, attributes } = this.props.location.details.product;
+    const { title, price, thumbnail, attributes, available_quantity } = this.props.location.details.product;
     return (
       <div className="product-details-page-container">
         <div className="product-details-h1-name">
@@ -47,7 +49,8 @@ class ProductDetails extends React.Component {
             </ul>
           </div>
         </div>
-        <button>Adicionar ao Carrinho</button>
+        <Quantity max={available_quantity} />
+        <AddToCart />
       </div>
     );
   }
