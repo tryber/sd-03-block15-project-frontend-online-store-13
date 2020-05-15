@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import ProductCard from './ProductCard';
+// import ProductInCart from './ProductInCart';
 
 class AddToCart extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class AddToCart extends React.Component {
   }
 
   goToCart() {
-    this.props.product.map((product) => <ProductCard key={product.id} product={product} />);
+    // <ProductInCart />
     this.setState({ redirect: true });
   }
 

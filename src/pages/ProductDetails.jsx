@@ -31,7 +31,7 @@ class ProductDetails extends React.Component {
   render() {
     const {
       title, price, thumbnail, attributes,
-      available_quantity,
+      available_quantity: availableQuantity,
     } = this.props.location.details.product;
     return (
       <div className="product-details-page-container">
@@ -52,7 +52,7 @@ class ProductDetails extends React.Component {
             </ul>
           </div>
         </div>
-        <Quantity max={available_quantity} />
+        <Quantity max={availableQuantity} />
         <AddToCart />
       </div>
     );
