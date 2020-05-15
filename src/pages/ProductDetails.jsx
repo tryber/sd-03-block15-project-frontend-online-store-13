@@ -34,8 +34,7 @@ class ProductDetails extends React.Component {
   handleChange(opp) {
     if (opp) {
       this.onIncrement();
-    }
-    else {
+    } else {
       this.onDecrement();
     }
   }
