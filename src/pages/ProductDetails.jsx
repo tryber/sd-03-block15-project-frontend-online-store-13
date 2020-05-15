@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductDetails.css';
-import AddToCart from '../components/AddToCart';
 import Quantity from '../components/Quantity';
 // import * as api from '../services/api';
 
@@ -8,9 +8,21 @@ class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {},
+      product: null,
+      qnt: 1,
       attributes: [],
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({ product: this.props.location.details.product });
+  }
+
+  handleChange(qnt2) {
+    this.setState({ qnt: qnt2 });
+    console.log(this.state.qnt);
   }
 
   // componentDidMount() {
@@ -52,8 +64,19 @@ class ProductDetails extends React.Component {
             </ul>
           </div>
         </div>
-        <Quantity max={availableQuantity} />
-        <AddToCart />
+        <Quantity kkk={this.handleChange} max={availableQuantity} />
+        <Link to={{
+          pathname: '/cart',
+          details: {
+          product: this.state.product,
+          qnt: this.state.qnt,
+          },
+          }} >
+          <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">
+            Adicionar ao Carrinho
+          </button>
+        </Link>
+        <p>{this.state.qnt}</p>
       </div>
     );
   }
