@@ -41,8 +41,10 @@ class ProductDetails extends React.Component {
   // }
 
   render() {
-    const { title, price, thumbnail, attributes, 
-      available_quantity: availableQuantity } = this.props.location.details.product;
+    const {
+      title, price, thumbnail, attributes,
+      available_quantity: availableQuantity,
+    } = this.props.location.details.product;
     return (
       <div className="product-details-page-container">
         <div className="product-details-h1-name">
@@ -64,7 +66,7 @@ class ProductDetails extends React.Component {
         </div>
         <Quantity prodQnt={this.handleChange} max={availableQuantity} />
         <Link
-          to={{ pathname: '/cart', details: { product: this.state.product, qnt: this.state.qnt }}}
+          to={{ pathname: '/cart', details: { product: this.state.product, qnt: this.state.qnt } }}
         >
           <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">
             Adicionar ao Carrinho
