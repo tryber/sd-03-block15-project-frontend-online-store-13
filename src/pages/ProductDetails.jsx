@@ -1,31 +1,8 @@
 import React from 'react';
 import './ProductDetails.css';
-// import * as api from '../services/api';
+import ProductReview from '../components/ProductReview';
 
 class ProductDetails extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      product: {},
-      attributes: [],
-    };
-  }
-
-  // componentDidMount() {
-  //   const { search, id } = this.props.match.params;
-  //   console.log(this.props);
-  //   api.getProductsFromCategoryAndQuery(null, search).then((resp) => {
-  //     const productDetails = resp.results.find((e) => e.id === id);
-  //     this.setState({
-  //       product: productDetails,
-  //       attributes: productDetails.attributes,
-  //     });
-  //   });
-  //   api.getCategories().then((resp) => {
-  //     console.log(resp);
-  //   });
-  // }
-
   render() {
     const { title, price, thumbnail, attributes } = this.props.location.details.product;
     return (
@@ -47,6 +24,7 @@ class ProductDetails extends React.Component {
             </ul>
           </div>
         </div>
+        <ProductReview />
       </div>
     );
   }
