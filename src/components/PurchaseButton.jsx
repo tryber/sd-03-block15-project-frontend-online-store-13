@@ -8,25 +8,25 @@ class PurchaseButton extends React.Component {
   }
 
   handleClick() {
-    const {
-      name, email, cpf, phone, cep, address,
-      compl, addressNum, city, state, payMethod,
-    } = this.props.data;
-
-    alert(
-      `Nome: ${name}
-      E-mail: ${email}
-      CPF: ${cpf}
-      Phone: ${phone}
-      CEP: ${cep}
-      Endereço: ${address}
-      Complmento: ${compl}
-      Número: ${addressNum}
-      Cidade: ${city}
-      Estado: ${state}
-      Método de Pagamento: ${payMethod}
-      `,
-    );
+    // const {
+    //   name, email, cpf, phone, cep, address,
+    //   compl, addressNum, city, state, payMethod,
+    // } = this.props.data;
+    console.log(this.props.data);
+    // alert(
+    //   `Nome: ${name}
+    //   E-mail: ${email}
+    //   CPF: ${cpf}
+    //   Phone: ${phone}
+    //   CEP: ${cep}
+    //   Endereço: ${address}
+    //   Complmento: ${compl}
+    //   Número: ${addressNum}
+    //   Cidade: ${city}
+    //   Estado: ${state}
+    //   Método de Pagamento: ${payMethod}
+    //   `,
+    // );
   }
 
   render() {
