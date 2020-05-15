@@ -11,15 +11,10 @@ class Cart extends React.Component {
     super(props);
     this.state = { items: [] };
     this.removeItem = this.removeItem.bind(this);
-    this.saveItens = this.saveItens.bind(this);
-  }
-
-  saveItens() {
-    localStorage.setItem('cart', this.state.items);
   }
 
   componentDidMount() {
-    this.saveItens();
+    localStorage.setItem('cart', this.state.items);
   }
 
   removeItem(product) {
