@@ -32,7 +32,12 @@ class ProductDetails extends React.Component {
   }
 
   handleChange(opp) {
-    opp = true ? this.onIncrement() : this.onDecrement();
+    if (opp) {
+      this.onIncrement();
+    }
+    else {
+      this.onDecrement();
+    }
   }
 
   // componentDidMount() {
