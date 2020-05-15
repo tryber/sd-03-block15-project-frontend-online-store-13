@@ -9,9 +9,11 @@ class ProductDetails extends React.Component {
     super(props);
     this.state = {
       product: null,
-      qnt: 1,
+      counter: 1,
       attributes: [],
     };
+    this.onIncrement = this.onIncrement.bind(this);
+    this.onDecrement = this.onDecrement.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -20,9 +22,17 @@ class ProductDetails extends React.Component {
     this.setState({ product: this.props.location.details.product });
   }
 
-  handleChange(qnt2) {
-    this.setState({ qnt: qnt2 });
-    console.log(this.state.qnt);
+  onIncrement() {
+    const { available_quantity: availableQuantity } = this.props.location.details.product;
+    this.setState((state) => ({ counter: Math.min(state.counter + 1, availableQuantity) }));
+  }
+
+  onDecrement() {
+    this.setState((state) => ({ counter: Math.max(state.counter - 1, 1) }));
+  }
+
+  handleChange(opp) {
+    (opp) ? this.onIncrement() : this.onDecrement();
   }
 
   // componentDidMount() {
@@ -41,10 +51,7 @@ class ProductDetails extends React.Component {
   // }
 
   render() {
-    const {
-      title, price, thumbnail, attributes,
-      available_quantity: availableQuantity,
-    } = this.props.location.details.product;
+    const { title, price, thumbnail, attributes } = this.props.location.details.product;
     return (
       <div className="product-details-page-container">
         <div className="product-details-h1-name">
@@ -62,15 +69,14 @@ class ProductDetails extends React.Component {
             </ul>
           </div>
         </div>
-        <Quantity prodQnt={this.handleChange} max={availableQuantity} />
+        <Quantity prodQnt={this.handleChange} counter={this.state.counter} />
         <Link
-          to={{ pathname: '/cart', details: { product: this.state.product, qnt: this.state.qnt } }}
+          to={{ pathname: '/cart', details: { product: this.state.product, qnt: this.state.counter } }}
         >
           <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">
             Adicionar ao Carrinho
           </button>
         </Link>
-        <p>{this.state.qnt}</p>
       </div>
     );
   }
