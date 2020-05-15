@@ -29,9 +29,7 @@ class ProductDetails extends React.Component {
   // }
 
   render() {
-    const {
-      title, price, thumbnail, attributes, available_quantity
-    } = this.props.location.details.product;
+    const { title, price, thumbnail, attributes, available_quantity } = this.props.location.details.product;
     return (
       <div className="product-details-page-container">
         <div className="product-details-h1-name">
