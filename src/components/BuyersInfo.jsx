@@ -1,4 +1,5 @@
 import React from 'react';
+import './BuyersInfo.css';
 
 const estadosArr = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES',
   'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ',
@@ -8,26 +9,25 @@ const estadosArr = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES',
 class BuyersInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      email: '',
-      cpf: '',
-      phone: '',
-      cep: '',
-      address: '',
-      compl: '',
-      addressNum: '',
-      city: '',
-      state: 'AC',
-    };
+    // this.state = {
+    //   name: '',
+    //   email: '',
+    //   cpf: '',
+    //   phone: '',
+    //   cep: '',
+    //   address: '',
+    //   compl: '',
+    //   addressNum: '',
+    //   city: '',
+    //   state: 'AC',
+    // };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+    const { onChange } = this.props;
+    onChange(name, value);
   }
 
   inputCreator(testId, htmlForID, title, type, name, value) {
@@ -47,9 +47,8 @@ class BuyersInfo extends React.Component {
   }
 
   inputCreatorStates() {
-    const { state } = this.state;
     return (
-      <select onChange={this.handleChange} name="state" value={state}>
+      <select onChange={this.handleChange} name="state">
         {estadosArr.map((e) => (
           <option key={e}>{e}</option>
         ))}
@@ -58,30 +57,22 @@ class BuyersInfo extends React.Component {
   }
 
   render() {
-    const {
-      name,
-      email,
-      cpf,
-      phone,
-      cep,
-      address,
-      compl,
-      addressNum,
-      city,
-    } = this.state;
     return (
-      <form>
-        {this.inputCreator('checkout-fullname', 'name', 'Nome completo', 'text', 'name', name)}
-        {this.inputCreator('checkout-email', 'email', 'E-mail', 'email', 'email', email)}
-        {this.inputCreator('checkout-cpf', 'cpf', 'CPF', 'text', 'cpf', cpf)}
-        {this.inputCreator('checkout-phone', 'phone', 'Telefone', 'text', 'phone', phone)}
-        {this.inputCreator('checkout-cep', 'cep', 'CEP', 'text', 'cep', cep)}
-        {this.inputCreator('checkout-address', 'address', 'Endereço', 'text', 'address', address)}
-        {this.inputCreator('checkout-address', 'compl', 'Complemento', 'text', 'compl', compl)}
-        {this.inputCreator('checkout-address', 'adNumb', 'Número', 'text', 'addressNum', addressNum)}
-        {this.inputCreator('checkout-address', 'city', 'Cidade', 'text', 'city', city)}
-        {this.inputCreatorStates()}
-      </form>
+      <div className="personal-data-form-container">
+        <h3>Informações do Comprador</h3>
+        <form className="personal-data-form">
+          {this.inputCreator('checkout-fullname', 'name', 'Nome completo', 'text', 'name')}
+          {this.inputCreator('checkout-email', 'email', 'E-mail', 'email', 'email')}
+          {this.inputCreator('checkout-cpf', 'cpf', 'CPF', 'text', 'cpf')}
+          {this.inputCreator('checkout-phone', 'phone', 'Telefone', 'text', 'phone')}
+          {this.inputCreator('checkout-cep', 'cep', 'CEP', 'text', 'cep')}
+          {this.inputCreator('checkout-address', 'address', 'Endereço', 'text', 'address')}
+          {this.inputCreator('checkout-address', 'compl', 'Complemento', 'text', 'compl')}
+          {this.inputCreator('checkout-address', 'adNumb', 'Número', 'text', 'addressNum')}
+          {this.inputCreator('checkout-address', 'city', 'Cidade', 'text', 'city')}
+          {this.inputCreatorStates()}
+        </form>
+      </div>
     );
   }
 }

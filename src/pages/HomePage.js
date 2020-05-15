@@ -68,13 +68,6 @@ class HomePage extends React.Component {
                 answer={answer}
                 typedSearch={typedSearch}
               />
-              {/* {!ableToSearch
-                ? <p data-testid="home-initial-message">
-                  Digite algum termo de pesquisa ou escolha uma categoria.
-                  </p>
-                :
-                <ProductList search={typedSearch} apiAnswer={answer} />
-              } */}
             </div>
           </div>
         </div>
