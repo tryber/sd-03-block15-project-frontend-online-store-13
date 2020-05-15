@@ -5,14 +5,21 @@ import returnIcon from '../images/return.png';
 import empty from '../images/empty-cart.png';
 import cartIcon from '../images/cart-icon.png';
 import './Cart.css';
-import data from '../__mocks__/query';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: data.results };
+    this.state = { items: [] };
     this.removeItem = this.removeItem.bind(this);
     this.saveItens = this.saveItens.bind(this);
+  }
+
+  saveItens() {
+    localStorage.setItem('cart', this.state.items);
+  }
+
+  componentDidMount() {
+    this.saveItens();
   }
 
   removeItem(product) {
@@ -20,15 +27,7 @@ class Cart extends React.Component {
       if (item === product) {
         this.state.items.splice(index);
       }
-    })
-  }
-
-  saveItens() {
-    localStorage.setItem('cart', this.state.items);
-  } 
-
-  componentDidMount() {
-    this.saveItens();
+    });
   }
 
   render() {
@@ -49,7 +48,7 @@ class Cart extends React.Component {
             <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
           </div>
         :
-          <ProductInCart products={this.state.items} handleClick={this.removeItem}/>
+          <ProductInCart products={this.state.items} handleClick={this.removeItem} />
         }
       </div>
     );
