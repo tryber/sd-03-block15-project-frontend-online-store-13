@@ -58,9 +58,7 @@ class ProductDetails extends React.Component {
           <div className="product-details-right">
             <h3>Especificações Técnicas</h3>
             <ul>
-              {attributes.map((e) => (
-                <li key={e.id}>{`${e.name}: ${e.value_name}`}</li>
-              ))}
+              {attributes.map((e) => (<li key={e.id}>{`${e.name}: ${e.value_name}`}</li>))}
             </ul>
           </div>
         </div>
