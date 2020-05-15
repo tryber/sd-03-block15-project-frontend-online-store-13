@@ -13,12 +13,12 @@ class Quantity extends React.Component {
 
   onIncrement() {
     this.setState((state) => ({ counter: Math.min(state.counter + 1, this.props.max) }));
-    this.props.kkk(this.state.counter);
+    this.props.prodQnt(this.state.counter);
   }
 
   onDecrement() {
     this.setState((state) => ({ counter: Math.max(state.counter - 1, 1) }));
-    this.props.kkk(this.state.counter);
+    this.props.prodQnt(this.state.counter);
   }
 
   render() {
