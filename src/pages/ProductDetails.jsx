@@ -14,12 +14,8 @@ class ProductDetails extends React.Component {
     };
     this.onIncrement = this.onIncrement.bind(this);
     this.onDecrement = this.onDecrement.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState({ product: this.props.location.details.product });
+    this.handleChange = this.handleChange.bind(this);
   }
 
   onIncrement() {
@@ -31,8 +27,12 @@ class ProductDetails extends React.Component {
     this.setState((state) => ({ counter: Math.max(state.counter - 1, 1) }));
   }
 
+  handleClick() {
+    this.setState({ product: this.props.location.details.product });
+  }
+
   handleChange(opp) {
-    (opp) ? this.onIncrement() : this.onDecrement();
+    opp = true ? this.onIncrement() : this.onDecrement();
   }
 
   // componentDidMount() {
