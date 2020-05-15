@@ -5,13 +5,14 @@ import returnIcon from '../images/return.png';
 import empty from '../images/empty-cart.png';
 import cartIcon from '../images/cart-icon.png';
 import './Cart.css';
-// import data from '../__mocks__/query';
+import data from '../__mocks__/query';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: [] };
+    this.state = { items: data.results };
     this.removeItem = this.removeItem.bind(this);
+    this.saveItens = this.saveItens.bind(this);
   }
 
   removeItem(product) {
@@ -21,6 +22,15 @@ class Cart extends React.Component {
       }
     })
   }
+
+  saveItens() {
+    localStorage.setItem('cart', this.state.items);
+  } 
+
+  componentDidMount() {
+    this.saveItens();
+  }
+
   render() {
     return (
       <div>
