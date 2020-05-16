@@ -49,7 +49,7 @@ class ChangeQnt extends React.Component {
 
   render() {
     const { qnt, price } = this.state;
-    console.log(qnt);
+    // console.log(qnt);
     return (
       <div className="qntPriceComp">
         <div className="changeQtnComp">
