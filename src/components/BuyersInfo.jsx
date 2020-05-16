@@ -1,6 +1,7 @@
 import React from 'react';
 import './BuyersInfo.css';
 
+
 const estadosArr = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES',
   'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ',
   'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO',
@@ -9,18 +10,6 @@ const estadosArr = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES',
 class BuyersInfo extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   name: '',
-    //   email: '',
-    //   cpf: '',
-    //   phone: '',
-    //   cep: '',
-    //   address: '',
-    //   compl: '',
-    //   addressNum: '',
-    //   city: '',
-    //   state: 'AC',
-    // };
     this.handleChange = this.handleChange.bind(this);
   }
 

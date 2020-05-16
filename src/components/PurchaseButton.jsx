@@ -30,7 +30,6 @@ class PurchaseButton extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="purchase-btn-container">
         <button className="purchase-btn" type="button" onClick={this.handleClick}>Comprar</button>
