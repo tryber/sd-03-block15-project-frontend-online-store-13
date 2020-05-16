@@ -4,9 +4,10 @@ import './ChangeQnt.css';
 class ChangeQnt extends React.Component {
   constructor(props) {
     super(props);
+    const { qnt, price } = this.props;
     this.state = {
-      qnt: this.props.qnt,
-      price: this.props.price,
+      qnt,
+      price,
     };
     this.reduceQnt = this.reduceQnt.bind(this);
     this.increaseQnt = this.increaseQnt.bind(this);
