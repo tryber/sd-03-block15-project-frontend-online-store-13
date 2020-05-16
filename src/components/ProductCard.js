@@ -20,7 +20,8 @@ class ProductCard extends React.Component {
         >
           VER DETALHES
         </Link>
-        <button data-testid="product-add-to-cart"><Link
+        <button data-testid="product-add-to-cart" onClick={() => this.props.handleClick(product, 1)}>Adicionar ao Carrinho</button>
+        {/* <Link
           to={{
             pathname: '/cart',
             details: {
@@ -29,9 +30,7 @@ class ProductCard extends React.Component {
             },
           }}
           data-testid="product-detail-link"
-        >
-          Adicionar ao Carrinho
-        </Link></button>
+        /> */}
       </div>
     );
   }

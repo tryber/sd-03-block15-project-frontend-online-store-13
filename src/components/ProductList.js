@@ -3,6 +3,26 @@ import ProductCard from './ProductCard';
 import './ProductList.css';
 
 class ProductList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      session: [],
+    }
+    this.addToSession = this.addToSession.bind(this);
+  }
+
+  addToSession(product, qnt) {
+    const toAdd = {
+      product, 
+      qnt
+    }
+    this.setState((state) => ({session: [...state.session, toAdd]}));
+  }
+
+  componentWillUnmount() {
+    localStorage.setItem('cart', JSON.stringify(this.state.session));
+  }
+
   render() {
     const { search, apiAnswer } = this.props;
     const products = apiAnswer;
@@ -16,7 +36,7 @@ class ProductList extends React.Component {
     return (
       <div className="product-lst">
         {products.results.map((prod) =>
-          <ProductCard search={search} key={prod.id} product={prod} />,
+          <ProductCard search={search} key={prod.id} product={prod} handleClick={this.addToSession}/>,
         )}
       </div>
     );

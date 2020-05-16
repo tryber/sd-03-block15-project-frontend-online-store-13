@@ -19,6 +19,7 @@ class ProductInCart extends React.Component {
       <div>
         {this.props.products.map((product) =>
           <div className="product" key={product.product.id}>
+            <button onClick={() => this.props.handleClick(product)}>X</button>
             <img src={product.product.thumbnail} alt="Product" />
             <p data-testid="shopping-cart-product-name">{product.product.title}</p>
             <ChangeQnt
@@ -30,7 +31,7 @@ class ProductInCart extends React.Component {
           </div>,
         )}
         <p>Valor Total da Compra: R${this.state.totalPrice.toFixed(2)}</p>
-        <Link> Finalizar Compra </Link>
+        <Link to="/" data-testi="checkout-products"> Finalizar Compra </Link>
       </div>
     );
   }
