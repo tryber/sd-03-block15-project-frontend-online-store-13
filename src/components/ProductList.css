@@ -1,0 +1,4 @@
+.product-lst {
+  display: flex;
+  flex-wrap: wrap;
+}

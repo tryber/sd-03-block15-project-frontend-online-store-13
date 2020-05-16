@@ -20,6 +20,13 @@ class ProductCard extends React.Component {
         >
           VER DETALHES
         </Link>
+        <button
+          type="button"
+          data-testid="product-add-to-cart"
+          onClick={() => this.props.handleClick(product, 1)}
+        >
+          Adicionar ao Carrinho
+        </button>
       </div>
     );
   }

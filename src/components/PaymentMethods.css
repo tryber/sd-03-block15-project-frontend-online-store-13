@@ -1,0 +1,9 @@
+.payment-method-container {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.billet-credit-card {
+  display: flex;
+  justify-content: flex-start;
+}
