@@ -6,20 +6,29 @@ import ChangeQnt from './ChangeQnt';
 class ProductInCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { totalPrice: 0 };
+    this.state = {
+      totalPrice: 0,
+      totalQuantity: undefined,
+    };
     this.changeTotal = this.changeTotal.bind(this);
   }
 
-  changeTotal(value) {
-    this.setState((state) => ({ totalPrice: state.totalPrice + value }));
+  changeTotal(value, qnt) {
+    this.setState((state) => ({
+      totalPrice: state.totalPrice + value,
+      totalQuantity: state.totalQuantity + qnt,
+    }));
   }
 
   render() {
+    const { products, handleClick } = this.props;
+    const { totalPrice } = this.state;
+    // console.log(this.props.products);
     return (
       <div>
-        {this.props.products.map((product) =>
+        {products.map((product) =>
           <div className="product" key={product.product.id}>
-            <button onClick={() => this.props.handleClick(product)}>X</button>
+            <button onClick={() => handleClick(product)}>X</button>
             <img src={product.product.thumbnail} alt="Product" />
             <p data-testid="shopping-cart-product-name">{product.product.title}</p>
             <ChangeQnt
@@ -30,8 +39,10 @@ class ProductInCart extends React.Component {
             />
           </div>,
         )}
-        <p>Valor Total da Compra: R${this.state.totalPrice.toFixed(2)}</p>
-        <Link to="/" data-testi="checkout-products"> Finalizar Compra </Link>
+        <p>Valor Total da Compra: R${totalPrice.toFixed(2)}</p>
+        <Link to="/checkout" data-testid="checkout-products">
+          Finalizar Compra
+        </Link>
       </div>
     );
   }

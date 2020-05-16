@@ -14,41 +14,51 @@ class ChangeQnt extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.onChange) {
-      this.props.onChange(this.state.price);
+    const { onChange } = this.props;
+    const { price } = this.state;
+    if (onChange) {
+      onChange(price);
     }
   }
 
   changePrice() {
-    this.setState((state) => ({ price: this.props.price * state.qnt }));
+    const { price } = this.props;
+    this.setState((state) => ({ price: price * state.qnt }));
   }
 
   reduceQnt() {
-    if (this.state.qnt > 1) {
+    const { onChange, price } = this.props;
+    const { qnt } = this.state;
+    if (qnt > 1) {
       this.setState((state) => ({ qnt: state.qnt - 1 }));
       this.changePrice();
-      this.props.onChange(-this.props.price);
+      onChange(-price);
     }
   }
 
   increaseQnt() {
-    if (this.state.qnt < this.props.max) {
+    const { qnt } = this.state;
+    const { max, onChange, price } = this.props;
+    console.log(qnt);
+    if (qnt < max) {
       this.setState((state) => ({ qnt: state.qnt + 1 }));
       this.changePrice();
-      this.props.onChange(this.props.price);
+      onChange(price, qnt);
     }
   }
 
   render() {
+    const { qnt, price } = this.state;
+    // console.log(qnt);
     return (
       <div className="qntPriceComp">
         <div className="changeQtnComp">
           <button data-testid="product-decrease-quantity" onClick={this.reduceQnt}> - </button>
-          <p data-testid="shopping-cart-product-quantity">{this.state.qnt}</p>
+          <p data-testid="shopping-cart-product-quantity">{qnt}</p>
           <button data-testid="product-increase-quantity" onClick={this.increaseQnt}> + </button>
         </div>
         <div>
-          <p>{`R$${this.state.price.toFixed(2)}`}</p>
+          <p>{`R$${price.toFixed(2)}`}</p>
         </div>
       </div>
     );
