@@ -1,6 +1,6 @@
 import React from 'react';
 import BuyersInfo from '../components/BuyersInfo';
-// import AllProducts from '../components/AllProducts';
+import AllProducts from '../components/AllProducts';
 import PaymentMethods from '../components/PaymentMethods';
 import PurchaseButton from '../components/PurchaseButton';
 
@@ -23,16 +23,21 @@ class CheckoutPage extends React.Component {
     this.changingState = this.changingState.bind(this);
   }
 
+  gettingProductsLocalStorage() {
+    return JSON.parse(localStorage.getItem('cart'))
+  }
+
   changingState(name, value) {
     this.setState({ [name]: value });
   }
+
 
   render() {
     return (
       <div>
         <div>
           <div>
-            {/* <AllProducts /> */}
+            <AllProducts products={this.gettingProductsLocalStorage()} />
           </div>
           <div>
             <BuyersInfo onChange={this.changingState} />

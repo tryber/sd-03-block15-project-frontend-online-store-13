@@ -6,15 +6,22 @@ import ChangeQnt from './ChangeQnt';
 class ProductInCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { totalPrice: 0 };
+    this.state = {
+      totalPrice: 0,
+      totalQuantity: undefined,
+    };
     this.changeTotal = this.changeTotal.bind(this);
   }
 
-  changeTotal(value) {
-    this.setState((state) => ({ totalPrice: state.totalPrice + value }));
+  changeTotal(value, qnt) {
+    this.setState((state) => ({
+      totalPrice: state.totalPrice + value,
+      totalQuantity: state.totalQuantity + qnt,
+    }));
   }
 
   render() {
+    console.log(this.props.products);
     return (
       <div>
         {this.props.products.map((product) =>
@@ -31,7 +38,15 @@ class ProductInCart extends React.Component {
           </div>,
         )}
         <p>Valor Total da Compra: R${this.state.totalPrice.toFixed(2)}</p>
-        <Link to="/" data-testi="checkout-products"> Finalizar Compra </Link>
+        <Link
+          to={{
+            pathname: "/checkout",
+            products: this.props.products,
+          }}
+          data-testid="checkout-products"
+        >
+          Finalizar Compra
+        </Link>
       </div>
     );
   }
