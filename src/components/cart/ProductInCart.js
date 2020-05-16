@@ -17,10 +17,6 @@ class ProductInCart extends React.Component {
     this.setState((state) => ({ totalPrice: state.totalPrice + value }));
   }
 
-  handleLocalStorage() {
-
-  }
-
   render() {
     const { products, handleClick } = this.props;
     const { totalPrice } = this.state;

@@ -68,14 +68,16 @@ class ChangeQnt extends React.Component {
           <button
             type="button"
             data-testid="product-decrease-quantity"
-            onClick={this.reduceQnt}>
+            onClick={this.reduceQnt}
+          >
             -
           </button>
           <p data-testid="shopping-cart-product-quantity">{qnt}</p>
           <button
             type="button"
             data-testid="product-increase-quantity"
-            onClick={this.increaseQnt}>
+            onClick={this.increaseQnt}
+          >
             +
           </button>
         </div>
