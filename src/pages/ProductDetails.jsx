@@ -8,7 +8,7 @@ class ProductDetails extends React.Component {
     const { shipping } = this.props.location.details.product;
     if (shipping.free_shipping) {
       return (
-        <span>Free Shipping!</span>
+        <span data-testid="free-shipping">Free Shipping!</span>
       );
     }
     return (
