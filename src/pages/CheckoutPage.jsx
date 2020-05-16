@@ -24,7 +24,9 @@ class CheckoutPage extends React.Component {
   }
 
   gettingProductsLocalStorage() {
-    return JSON.parse(localStorage.getItem('cart'))
+    const { compl } = this.state;
+    console.log(compl);
+    return JSON.parse(localStorage.getItem('cart'));
   }
 
   changingState(name, value) {

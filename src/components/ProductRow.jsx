@@ -3,9 +3,7 @@ import React from 'react';
 class ProductRow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      totalPrice: 0,
-    }
+    this.state = { totalPrice: 0 };
   }
 
   // componentDidUpdate() {

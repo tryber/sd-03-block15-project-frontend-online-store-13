@@ -7,11 +7,11 @@ class PaymentMethods extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    const { name, value } = event.target;
-    const { onChange } = this.props;
-    onChange(name, value);
-  }
+  // handleChange(event) {
+  //   const { name, value } = event.target;
+  //   const { onChange } = this.props;
+  //   onChange(name, value);
+  // }
 
   creditCardInputCreator(title, htmlForId) {
     return (
