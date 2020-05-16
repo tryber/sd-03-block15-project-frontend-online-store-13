@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductDetails.css';
+import cartIcon from '../images/cart-icon.png';
 import Quantity from '../components/Quantity';
 import ProductReview from '../components/ProductReview';
 
@@ -42,31 +43,36 @@ class ProductDetails extends React.Component {
   render() {
     const { title, price, thumbnail, attributes } = this.props.location.details.product;
     return (
-      <div className="product-details-page-container">
-        <div className="product-details-h1-name">
-          <h1 data-testid="product-detail-name">{title}</h1>
-          <h2>{`R$ ${Number(price).toFixed(2)}`}</h2>
-        </div>
-        <div className="produc-details-contents">
-          <div className="product-details-left">
-            <img src={thumbnail} alt={`Foto do ${title}`} />
-          </div>
-          <div className="product-details-right">
-            <h3>Especificações Técnicas</h3>
-            <ul>
-              {attributes.map((e) => (<li key={e.id}>{`${e.name}: ${e.value_name}`}</li>))}
-            </ul>
-          </div>
-        </div>
-        <Quantity prodQnt={this.handleChange} counter={this.state.counter} />
-        <Link
-          to={{ pathname: '/cart', details: { product: this.state.product, qnt: this.state.counter } }}
-        >
-          <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">
-            Adicionar ao Carrinho
-          </button>
+      <div>
+        <Link to="/cart" data-testid="shopping-cart-button">
+          <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
         </Link>
-        <ProductReview />
+        <div className="product-details-page-container">
+          <div className="product-details-h1-name">
+            <h1 data-testid="product-detail-name">{title}</h1>
+            <h2>{`R$ ${Number(price).toFixed(2)}`}</h2>
+          </div>
+          <div className="produc-details-contents">
+            <div className="product-details-left">
+              <img src={thumbnail} alt={`Foto do ${title}`} />
+            </div>
+            <div className="product-details-right">
+              <h3>Especificações Técnicas</h3>
+              <ul>
+                {attributes.map((e) => (<li key={e.id}>{`${e.name}: ${e.value_name}`}</li>))}
+              </ul>
+            </div>
+          </div>
+          <Quantity prodQnt={this.handleChange} counter={this.state.counter} />
+          <Link
+            to={{ pathname: '/cart', details: { product: this.state.product, qnt: this.state.counter } }}
+          >
+            <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">
+              Adicionar ao Carrinho
+            </button>
+          </Link>
+          <ProductReview />
+        </div>
       </div>
     );
   }
