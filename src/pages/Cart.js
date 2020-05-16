@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProductInCart from '../components/ProductInCart';
+import ProductInCart from '../components/cart/ProductInCart';
 import returnIcon from '../images/return.png';
 import empty from '../images/empty-cart.png';
 import cartIcon from '../images/cart-icon.png';

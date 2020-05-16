@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductDetails.css';
-import ProductReview from '../components/ProductReview';
+import ProductReview from '../components/productDetails/ProductReview';
 
 class ProductDetails extends React.Component {
 

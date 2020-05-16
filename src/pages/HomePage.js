@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery, getCategories } from '../services/api';
 import './HomePage.css';
 import cartIcon from '../images/cart-icon.png';
-import SearchControl from '../components/SearchControl';
-import FilterCategory from '../components/FilterCategory';
-import SearchBar from '../components/SearchBar';
+import SearchControl from '../components/homePage/SearchControl';
+import FilterCategory from '../components/homePage/FilterCategory';
+import SearchBar from '../components/homePage/SearchBar';
 
 class HomePage extends React.Component {
   constructor(props) {
