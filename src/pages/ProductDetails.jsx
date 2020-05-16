@@ -30,6 +30,7 @@ class ProductDetails extends React.Component {
   handleClick() {
     this.setState({ product: this.props.location.details.product });
   }
+  // Alterar o handleClick
 
   handleChange(opp) {
     if (opp) {
