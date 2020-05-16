@@ -2,10 +2,10 @@ import React from 'react';
 import './PaymentMethods.css';
 
 class PaymentMethods extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
     // this.handleChange = this.handleChange.bind(this);
-  }
+  // }
 
   // handleChange(event) {
   //   const { name, value } = event.target;
