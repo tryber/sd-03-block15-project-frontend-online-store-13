@@ -9,7 +9,7 @@ import './Cart.css';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {items: JSON.parse(localStorage.getItem('cart'))};
+    this.state = { items: JSON.parse(localStorage.getItem('cart')) };
     this.removeItem = this.removeItem.bind(this);
   }
 
