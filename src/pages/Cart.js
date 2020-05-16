@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProductInCart from '../components/cart/ProductInCart';
 import returnIcon from '../images/return.png';
-import empty from '../images/empty-cart.png';
 import cartIcon from '../images/cart-icon.png';
+import ItemsCartControl from '../components/cart/ItemsCartControl';
 import './Cart.css';
 
 class Cart extends React.Component {
@@ -14,7 +13,8 @@ class Cart extends React.Component {
   }
 
   removeItem(product) {
-    const curList = [...this.state.items];
+    const { items } = this.state;
+    const curList = [...items];
     const index = curList.indexOf(product);
     if (index !== -1) {
       curList.splice(index, 1);
@@ -24,6 +24,7 @@ class Cart extends React.Component {
   }
 
   render() {
+    const { items } = this.state;
     return (
       <div>
         <header>
@@ -35,14 +36,7 @@ class Cart extends React.Component {
           <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
           <h3>Carrinho de Compras</h3>
         </div>
-        {this.state.items === null ?
-          <div className="empty-cart">
-            <img src={empty} alt="Empty Box" className="empty-image" />
-            <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
-          </div>
-        :
-          <ProductInCart products={this.state.items} handleClick={this.removeItem} />
-        }
+        <ItemsCartControl items={items} removeItem={this.removeItem} />
       </div>
     );
   }

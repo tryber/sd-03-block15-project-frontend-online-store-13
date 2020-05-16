@@ -41,7 +41,7 @@ class ProductInCart extends React.Component {
         )}
         <p>Valor Total da Compra: R${totalPrice.toFixed(2)}</p>
         <Link to="/checkout" data-testid="checkout-products">
-          Finalizar Compra
+          <button type="button" onClick={this.handleLocalStorage}>Finalizar Compra</button>
         </Link>
       </div>
     );
