@@ -1,0 +1,14 @@
+.qntPriceComp {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.changeQtnComp {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  width: 100px;
+}
