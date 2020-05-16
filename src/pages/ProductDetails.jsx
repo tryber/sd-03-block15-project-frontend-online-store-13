@@ -3,6 +3,19 @@ import './ProductDetails.css';
 import ProductReview from '../components/ProductReview';
 
 class ProductDetails extends React.Component {
+
+  freeShippingLabel() {
+    const { shipping } = this.props.location.details.product;
+    if (shipping.free_shipping) {
+      return (
+        <span>Free Shipping!</span>
+      );
+    }
+    return (
+      <span />
+    );
+  }
+
   render() {
     const { title, price, thumbnail, attributes } = this.props.location.details.product;
     return (
@@ -10,6 +23,7 @@ class ProductDetails extends React.Component {
         <div className="product-details-h1-name">
           <h1 data-testid="product-detail-name">{title}</h1>
           <h2>{`R$ ${Number(price).toFixed(2)}`}</h2>
+          {this.freeShippingLabel()}
         </div>
         <div className="produc-details-contents">
           <div className="product-details-left">
