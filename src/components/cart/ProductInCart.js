@@ -13,11 +13,12 @@ class ProductInCart extends React.Component {
     this.changeTotal = this.changeTotal.bind(this);
   }
 
-  changeTotal(value, qnt) {
-    this.setState((state) => ({
-      totalPrice: state.totalPrice + value,
-      totalQuantity: state.totalQuantity + qnt,
-    }));
+  changeTotal(value) {
+    this.setState((state) => ({ totalPrice: state.totalPrice + value }));
+  }
+
+  handleLocalStorage() {
+
   }
 
   render() {

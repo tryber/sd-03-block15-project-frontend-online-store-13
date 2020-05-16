@@ -39,13 +39,24 @@ class ChangeQnt extends React.Component {
   increaseQnt() {
     const { qnt } = this.state;
     const { max, onChange, price } = this.props;
-    console.log(qnt);
     if (qnt < max) {
       this.setState((state) => ({ qnt: state.qnt + 1 }));
       this.changePrice();
-      onChange(price, qnt);
+      onChange(price);
     }
   }
+
+  // buttonCreator(dataTestId, func) {
+  //   return (
+  //     <button
+  //       type="button"
+  //       data-testid={dataTestId}
+  //       onClick={func}
+  //     >
+  //       {symbol}
+  //     </button>
+  //   );
+  // }
 
   render() {
     const { qnt, price } = this.state;
@@ -53,9 +64,19 @@ class ChangeQnt extends React.Component {
     return (
       <div className="qntPriceComp">
         <div className="changeQtnComp">
-          <button data-testid="product-decrease-quantity" onClick={this.reduceQnt}> - </button>
+          <button
+            type="button"
+            data-testid="product-decrease-quantity"
+            onClick={this.reduceQnt}>
+            -
+          </button>
           <p data-testid="shopping-cart-product-quantity">{qnt}</p>
-          <button data-testid="product-increase-quantity" onClick={this.increaseQnt}> + </button>
+          <button
+            type="button"
+            data-testid="product-increase-quantity"
+            onClick={this.increaseQnt}>
+            +
+          </button>
         </div>
         <div>
           <p>{`R$${price.toFixed(2)}`}</p>
