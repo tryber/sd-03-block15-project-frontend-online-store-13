@@ -9,22 +9,16 @@ import './Cart.css';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: []};
+    this.state = {items: JSON.parse(localStorage.getItem('cart'))};
     this.removeItem = this.removeItem.bind(this);
   }
 
-  componentDidMount() {
-    if (localStorage.getItem('cart')) {
-      this.setState({items: JSON.parse(localStorage.getItem('cart'))})
-    }
-  }
-
   removeItem(product) {
-    var curList = [...this.state.items];
-    var index = curList.indexOf(product);
+    const curList = [...this.state.items];
+    const index = curList.indexOf(product);
     if (index !== -1) {
       curList.splice(index, 1);
-      this.setState({items: curList});
+      this.setState({ items: curList });
       localStorage.setItem('cart', JSON.stringify(curList));
     }
   }
@@ -41,13 +35,13 @@ class Cart extends React.Component {
           <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
           <h3>Carrinho de Compras</h3>
         </div>
-        {this.state.items.length === 0 ?
+        {this.state.items === null ?
           <div className="empty-cart">
             <img src={empty} alt="Empty Box" className="empty-image" />
             <p data-testid="shopping-cart-empty-message"> Seu carrinho está vazio </p>
           </div>
         :
-        <ProductInCart products={this.state.items} handleClick={this.removeItem} />
+          <ProductInCart products={this.state.items} handleClick={this.removeItem} />
         }
       </div>
     );
