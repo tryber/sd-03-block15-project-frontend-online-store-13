@@ -56,9 +56,9 @@ class BuyersInfo extends React.Component {
           {this.inputCreator('checkout-phone', 'phone', 'Telefone', 'text', 'phone')}
           {this.inputCreator('checkout-cep', 'cep', 'CEP', 'text', 'cep')}
           {this.inputCreator('checkout-address', 'address', 'Endereço', 'text', 'address')}
-          {this.inputCreator('checkout-address', 'compl', 'Complemento', 'text', 'compl')}
-          {this.inputCreator('checkout-address', 'adNumb', 'Número', 'text', 'addressNum')}
-          {this.inputCreator('checkout-address', 'city', 'Cidade', 'text', 'city')}
+          {this.inputCreator('checkout-comp', 'compl', 'Complemento', 'text', 'compl')}
+          {this.inputCreator('checkout-adNumb', 'adNumb', 'Número', 'text', 'addressNum')}
+          {this.inputCreator('checkout-city', 'city', 'Cidade', 'text', 'city')}
           {this.inputCreatorStates()}
         </form>
       </div>
