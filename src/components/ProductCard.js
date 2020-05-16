@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.css';
-import FreeShipping from './FreeShipping'
+import FreeShipping from './FreeShipping';
 
 class ProductCard extends React.Component {
   render() {
