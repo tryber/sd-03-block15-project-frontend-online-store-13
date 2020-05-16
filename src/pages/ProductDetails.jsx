@@ -44,9 +44,6 @@ class ProductDetails extends React.Component {
     const { title, price, thumbnail, attributes } = this.props.location.details.product;
     return (
       <div>
-        <Link to="/cart" data-testid="shopping-cart-button">
-          <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
-        </Link>
         <div className="product-details-page-container">
           <div className="product-details-h1-name">
             <h1 data-testid="product-detail-name">{title}</h1>
