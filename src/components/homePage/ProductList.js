@@ -3,11 +3,11 @@ import ProductCard from './ProductCard';
 import './ProductList.css';
 
 class ProductList extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = { session: [] };
-    // this.addToSession = this.addToSession.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { session: [] };
+  //   this.addToSession = this.addToSession.bind(this);
+  // }
 
   // addToSession(product, qnt) {
   //   const { session } = this.state;
