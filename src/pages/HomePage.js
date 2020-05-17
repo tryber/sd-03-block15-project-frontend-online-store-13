@@ -6,6 +6,7 @@ import cartIcon from '../images/cart-icon.png';
 import SearchControl from '../components/SearchControl';
 import FilterCategory from '../components/FilterCategory';
 import SearchBar from '../components/SearchBar';
+import CartIconQnt from '../components/CartIconQnt';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class HomePage extends React.Component {
       this.clickSearch();
     });
   }
-
+  
   render() {
     const { typedSearch, answer, categories, ableToSearch } = this.state;
     return (
@@ -58,6 +59,7 @@ class HomePage extends React.Component {
           <Link to="/cart" data-testid="shopping-cart-button">
             <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
           </Link>
+          <CartIconQnt />
         </div>
         <div className="product">
           <div className="product-list-category">
