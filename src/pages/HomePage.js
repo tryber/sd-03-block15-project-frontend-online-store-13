@@ -80,28 +80,11 @@ class HomePage extends React.Component {
       product,
       qnt,
     };
-    if (session.length !== 0) {
-      const currentList = session;
-      currentList.forEach((item, index) => {
-        if (
-          item.product.id === toAdd.product.id
-          && item.product.available_quantity >= item.qnt + 1
-        ) {
-          currentList[index] = {
-            product: toAdd.product,
-            qnt: item.qnt + 1,
-          };
-          this.setState({ session: [...currentList] });
-          localStorage.setItem('cart', JSON.stringify([...currentList]));
-        }
-      });
-    } else {
-      this.setState((state) => ({ session: [...state.session, toAdd] }));
-      localStorage.setItem(
-        'cart',
-        JSON.stringify([...session, toAdd]),
-      );
-    }
+    this.setState((state) => ({ session: [...state.session, toAdd] }));
+    localStorage.setItem(
+      'cart',
+      JSON.stringify([...session, toAdd]),
+    );
     this.updateNumDisplay();
   }
 
