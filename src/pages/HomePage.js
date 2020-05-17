@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { getProductsFromCategoryAndQuery, getCategories } from '../services/api';
+// import { Link } from 'react-router-dom';
+import {
+  getProductsFromCategoryAndQuery,
+  getCategories,
+} from '../services/api';
 import './HomePage.css';
-import cartIcon from '../images/cart-icon.png';
-import SearchControl from '../components/SearchControl';
-import FilterCategory from '../components/FilterCategory';
-import SearchBar from '../components/SearchBar';
+// import cartIcon from '../images/cart-icon.png';
+import SearchControl from '../components/homePage/SearchControl';
+import FilterCategory from '../components/homePage/FilterCategory';
+import SearchBar from '../components/homePage/SearchBar';
+import CartIconQnt from '../components/homePage/CartIconQnt';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -16,9 +20,13 @@ class HomePage extends React.Component {
       categories: [],
       ableToSearch: false,
       answer: null,
+      session: [],
+      numDisplay: 0,
     };
+    this.addToSession = this.addToSession.bind(this);
     this.searchChange = this.searchChange.bind(this);
     this.choosedCategory = this.choosedCategory.bind(this);
+    this.alreadyHere = this.alreadyHere.bind(this);
   }
 
   componentDidMount() {
@@ -35,12 +43,14 @@ class HomePage extends React.Component {
 
   clickSearch() {
     const { typedSearch, chosCategoryID } = this.state;
-    getProductsFromCategoryAndQuery(chosCategoryID, typedSearch).then((answer) => {
-      this.setState({
-        answer,
-        ableToSearch: true,
-      });
-    });
+    getProductsFromCategoryAndQuery(chosCategoryID, typedSearch).then(
+      (answer) => {
+        this.setState({
+          answer,
+          ableToSearch: true,
+        });
+      },
+    );
   }
 
   choosedCategory(id) {
@@ -49,21 +59,62 @@ class HomePage extends React.Component {
     });
   }
 
+  alreadyHere(toAdd) {
+    const { session } = this.state;
+    const currentList = session;
+    currentList.forEach((item) => {
+      if (item.product.id === toAdd.product.id) {
+        return {
+          product: toAdd.product,
+          qnt: item.qnt + 1,
+        };
+      }
+      return toAdd;
+    });
+    this.updateNumDisplay();
+  }
+
+  addToSession(product, qnt) {
+    const { session } = this.state;
+    const toAdd = {
+      product,
+      qnt,
+    };
+    this.setState((state) => ({ session: [...state.session, toAdd] }));
+    localStorage.setItem(
+      'cart',
+      JSON.stringify([...session, toAdd]),
+    );
+    this.updateNumDisplay();
+  }
+
+  updateNumDisplay() {
+    if (localStorage.getItem('cart')) {
+      const localstorageToArrOfObj = JSON.parse(localStorage.getItem('cart'));
+      const sumQnt = localstorageToArrOfObj.map((e) => e.qnt)
+        .reduce((acc, qtde) => (acc + qtde), 0);
+      this.setState({ numDisplay: sumQnt });
+    }
+  }
+
   render() {
-    const { typedSearch, answer, categories, ableToSearch } = this.state;
+    const { typedSearch, answer, categories, ableToSearch, numDisplay } = this.state;
     return (
       <div>
         <div className="searchbar-cart">
           <SearchBar onClick={this.searchChange} />
-          <Link to="/cart" data-testid="shopping-cart-button">
-            <img src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
-          </Link>
+          <CartIconQnt numb={numDisplay} />
         </div>
         <div className="product">
           <div className="product-list-category">
-            <FilterCategory onChecked={this.choosedCategory} categories={categories} />
+            <FilterCategory
+              onChecked={this.choosedCategory}
+              categories={categories}
+            />
             <div className="productsList">
               <SearchControl
+                numb={numDisplay}
+                onClick={this.addToSession}
                 ableToSearch={ableToSearch}
                 answer={answer}
                 typedSearch={typedSearch}
