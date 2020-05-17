@@ -68,16 +68,23 @@ class ProductDetails extends React.Component {
     );
   }
 
+  productPhoto() {
+    const { title, thumbnail } = this.props.location.details.product;
+    return (
+      <div className="product-details-left">
+        <img src={thumbnail} alt={`Foto do ${title}`} />
+      </div>
+    );
+  }
+
   render() {
-    const { title, price, thumbnail, attributes } = this.props.location.details.product;
+    const { attributes } = this.props.location.details.product;
     const { product, counter } = this.state;
     return (
       <div className="product-details-page-container">
         {this.productH1Name()}
         <div className="produc-details-contents">
-          <div className="product-details-left">
-            <img src={thumbnail} alt={`Foto do ${title}`} />
-          </div>
+          {this.productPhoto()}
           <div className="product-details-right">
             <h3>Especificações Técnicas</h3>
             <ul>
