@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './ProductDetails.css';
 import Quantity from '../components/Quantity';
 import ProductReview from '../components/ProductReview';
@@ -9,9 +8,12 @@ class ProductDetails extends React.Component {
     super(props);
     this.state = {
       product: null,
-      counter: 1,
+      qnt: 1,
       attributes: [],
+      session: [],
     };
+    // this.addToSession = this.addToSession.bind(this);
+
     this.onIncrement = this.onIncrement.bind(this);
     this.onDecrement = this.onDecrement.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -20,17 +22,29 @@ class ProductDetails extends React.Component {
 
   onIncrement() {
     const { available_quantity: availableQuantity } = this.props.location.details.product;
-    this.setState((state) => ({ counter: Math.min(state.counter + 1, availableQuantity) }));
+    this.setState((state) => ({ qnt: Math.min(state.qnt + 1, availableQuantity) }));
   }
 
   onDecrement() {
-    this.setState((state) => ({ counter: Math.max(state.counter - 1, 1) }));
+    this.setState((state) => ({ qnt: Math.max(state.qnt - 1, 1) }));
   }
 
   handleClick() {
     this.setState({ product: this.props.location.details.product });
   }
   // Alterar o handleClick
+
+  // handleClick(product, qnt) {
+  //   const toAdd = { product, qnt };
+  //   const currentStorage = JSON.parse(localStorage.getItem('cart'));
+  //   localStorage.setItem('cart', JSON.stringify([...currentStorage, toAdd]));
+  // }
+
+  // addToSession(product, qnt) {
+  //   const toAdd = { product, qnt };
+  //   this.setState((state) => ({ session: [...state.session, toAdd] }));
+  //   localStorage.setItem('cart', JSON.stringify([...this.state.session, toAdd]));
+  // }
 
   handleChange(opp) {
     if (opp) {
@@ -59,14 +73,10 @@ class ProductDetails extends React.Component {
             </ul>
           </div>
         </div>
-        <Quantity prodQnt={this.handleChange} counter={this.state.counter} />
-        <Link
-          to={{ pathname: '/cart', details: { product: this.state.product, qnt: this.state.counter } }}
-        >
-          <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">
-            Adicionar ao Carrinho
-          </button>
-        </Link>
+        <Quantity prodQnt={this.handleChange} qnt={this.state.qnt} />
+        <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">
+          Adicionar ao Carrinho
+        </button>
         <ProductReview />
       </div>
     );
