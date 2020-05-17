@@ -4,7 +4,6 @@ import './ProductDetails.css';
 import Quantity from '../components/productDetails/Quantity';
 import ProductReview from '../components/productDetails/ProductReview';
 import CartIconQnt from '../components/homePage/CartIconQnt';
-import cartIcon from '../images/cart-icon.png';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class ProductDetails extends React.Component {
     this.state = {
       product: null,
       counter: 1,
-      session: [],
+      // session: [],
     };
     this.onIncrement = this.onIncrement.bind(this);
     this.onDecrement = this.onDecrement.bind(this);
@@ -79,20 +78,29 @@ class ProductDetails extends React.Component {
     );
   }
 
-  render() {
-    const { attributes } = this.props.location.details.product;
-    const { product, counter } = this.state;
+  addToCartButton() {
+    const { counter, product } = this.state;
     const { func } = this.props.location;
     return (
+      <Link
+        to={{ pathname: '/cart', details: { product, qnt: counter } }}
+      >
+        <button
+          type="button"
+          onClick={() => func(this.props.location.details.product, counter)}
+          data-testid="product-detail-add-to-cart"
+        >
+          Adicionar ao Carrinho
+        </button>
+      </Link>
+    );
+  }
+
+  render() {
+    const { attributes } = this.props.location.details.product;
+    const { counter } = this.state;
+    return (
       <div>
-        <Link to="/cart">
-          <img
-            data-testid="shopping-cart-button"
-            src={cartIcon}
-            className="cart-icon"
-            alt="Icon of a Cart"
-          />
-        </Link>
         <CartIconQnt />
         <div className="product-details-page-container">
           {this.productH1Name()}
@@ -106,17 +114,7 @@ class ProductDetails extends React.Component {
             </div>
           </div>
           <Quantity prodQnt={this.handleChange} counter={counter} />
-          <Link
-            to={{ pathname: '/cart', details: { product, qnt: counter } }}
-          >
-            <button
-              type="button"
-              onClick={() => func(this.props.location.details.product, counter)}
-              data-testid="product-detail-add-to-cart"
-            >
-              Adicionar ao Carrinho
-            </button>
-          </Link>
+          {this.addToCartButton()}
           <ProductReview />
         </div>
       </div>
