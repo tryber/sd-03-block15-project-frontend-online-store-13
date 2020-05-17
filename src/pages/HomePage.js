@@ -113,6 +113,7 @@ class HomePage extends React.Component {
             />
             <div className="productsList">
               <SearchControl
+                numb={numDisplay}
                 onClick={this.addToSession}
                 ableToSearch={ableToSearch}
                 answer={answer}

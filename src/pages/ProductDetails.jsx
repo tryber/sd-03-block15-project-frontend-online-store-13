@@ -99,9 +99,11 @@ class ProductDetails extends React.Component {
   render() {
     const { attributes } = this.props.location.details.product;
     const { counter } = this.state;
+    const { numDisplay } = this.props.location;
+    console.log(this.props);
     return (
       <div>
-        <CartIconQnt />
+        <CartIconQnt numb={numDisplay} />
         <div className="product-details-page-container">
           {this.productH1Name()}
           <div className="produc-details-contents">

@@ -5,7 +5,7 @@ import FreeShipping from './FreeShipping';
 
 class ProductCard extends React.Component {
   render() {
-    const { product, handleClick } = this.props;
+    const { product, handleClick, numb } = this.props;
     const { title, price, thumbnail, id } = product;
     return (
       <div data-testid="product" className="productContainer">
@@ -18,6 +18,7 @@ class ProductCard extends React.Component {
             pathname: `/product/${id}`,
             details: { product },
             func: handleClick,
+            numDisplay: numb,
           }}
           data-testid="product-detail-link"
         >

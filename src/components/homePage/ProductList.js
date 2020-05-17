@@ -20,7 +20,7 @@ class ProductList extends React.Component {
   // }
 
   render() {
-    const { search, apiAnswer, onClick } = this.props;
+    const { search, apiAnswer, onClick, numb } = this.props;
     const products = apiAnswer;
     if (apiAnswer.results.length === 0) {
       return (
@@ -33,6 +33,7 @@ class ProductList extends React.Component {
       <div className="product-lst">
         {products.results.map((prod) =>
           <ProductCard
+            numb={numb}
             search={search}
             key={prod.id}
             product={prod}
