@@ -13,11 +13,8 @@ class ProductInCart extends React.Component {
     this.changeTotal = this.changeTotal.bind(this);
   }
 
-  changeTotal(value, qnt) {
-    this.setState((state) => ({
-      totalPrice: state.totalPrice + value,
-      totalQuantity: state.totalQuantity + qnt,
-    }));
+  changeTotal(value) {
+    this.setState((state) => ({ totalPrice: state.totalPrice + value }));
   }
 
   render() {
@@ -30,7 +27,7 @@ class ProductInCart extends React.Component {
           <div className="product" key={product.product.id}>
             <button onClick={() => handleClick(product)}>X</button>
             <img src={product.product.thumbnail} alt="Product" />
-            <p data-testid="shopping-cart-product-name">{product.product.title}</p>
+            <h3 data-testid="shopping-cart-product-name">{product.product.title}</h3>
             <ChangeQnt
               qnt={product.qnt}
               max={product.product.available_quantity}
@@ -41,7 +38,7 @@ class ProductInCart extends React.Component {
         )}
         <p>Valor Total da Compra: R${totalPrice.toFixed(2)}</p>
         <Link to="/checkout" data-testid="checkout-products">
-          Finalizar Compra
+          <button type="button" onClick={this.handleLocalStorage}>Finalizar Compra</button>
         </Link>
       </div>
     );
