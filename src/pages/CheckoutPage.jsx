@@ -1,8 +1,8 @@
 import React from 'react';
-import BuyersInfo from '../components/BuyersInfo';
-import AllProducts from '../components/AllProducts';
-import PaymentMethods from '../components/PaymentMethods';
-import PurchaseButton from '../components/PurchaseButton';
+import BuyersInfo from '../components/checkoutPage/BuyersInfo';
+import AllProducts from '../components/checkoutPage/AllProducts';
+import PaymentMethods from '../components/checkoutPage/PaymentMethods';
+import PurchaseButton from '../components/checkoutPage/PurchaseButton';
 
 class CheckoutPage extends React.Component {
   constructor(props) {

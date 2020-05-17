@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.css';
+import FreeShipping from './FreeShipping';
 
 class ProductCard extends React.Component {
   render() {
-    const { product } = this.props;
+    const { product, handleClick } = this.props;
     const { title, price, thumbnail, id } = product;
     return (
       <div data-testid="product" className="productContainer">
+        <FreeShipping shipping={product.shipping.free_shipping} />
         <p>{title}</p>
         <img src={thumbnail} alt="Product" />
         <p>{`R$${price.toFixed(2)}`}</p>
@@ -23,7 +25,7 @@ class ProductCard extends React.Component {
         <button
           type="button"
           data-testid="product-add-to-cart"
-          onClick={() => this.props.handleClick(product, 1)}
+          onClick={() => handleClick(product, 1)}
         >
           Adicionar ao Carrinho
         </button>

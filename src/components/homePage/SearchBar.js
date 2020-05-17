@@ -1,6 +1,6 @@
 import React from 'react';
 // import { getProductsFromCategoryAndQuery } from '../services/api';
-import search from '../images/search.png';
+import search from '../../images/search.png';
 import './SearchBar.css';
 
 class SearchBar extends React.Component {

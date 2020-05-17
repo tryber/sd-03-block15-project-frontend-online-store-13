@@ -10,12 +10,13 @@ class ProductList extends React.Component {
   }
 
   addToSession(product, qnt) {
+    const { session } = this.state;
     const toAdd = {
       product,
       qnt,
     };
     this.setState((state) => ({ session: [...state.session, toAdd] }));
-    localStorage.setItem('cart', JSON.stringify([...this.state.session, toAdd]));
+    localStorage.setItem('cart', JSON.stringify([...session, toAdd]));
   }
 
   render() {
