@@ -66,7 +66,7 @@ class ProductDetails extends React.Component {
             </div>
           </div>
           <Quantity prodQnt={this.handleChange} counter={this.state.counter} />
-          <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">Add</button>
+          <button onClick={this.handleClick} data-testid="product-detail-add-to-cart">Adicionar ao carrinho</button>
           <ProductReview />
         </div>
       </div>
