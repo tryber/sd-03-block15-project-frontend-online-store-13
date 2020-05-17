@@ -57,16 +57,23 @@ class ProductDetails extends React.Component {
     );
   }
 
+  productH1Name() {
+    const { title, price } = this.props.location.details.product;
+    return (
+      <div className="product-details-h1-name">
+        <h1 data-testid="product-detail-name">{title}</h1>
+        <h2>{`R$ ${Number(price).toFixed(2)}`}</h2>
+        {this.freeShippingLabel()}
+      </div>
+    );
+  }
+
   render() {
     const { title, price, thumbnail, attributes } = this.props.location.details.product;
     const { product, counter } = this.state;
     return (
       <div className="product-details-page-container">
-        <div className="product-details-h1-name">
-          <h1 data-testid="product-detail-name">{title}</h1>
-          <h2>{`R$ ${Number(price).toFixed(2)}`}</h2>
-          {this.freeShippingLabel()}
-        </div>
+        {this.productH1Name()}
         <div className="produc-details-contents">
           <div className="product-details-left">
             <img src={thumbnail} alt={`Foto do ${title}`} />
@@ -82,7 +89,8 @@ class ProductDetails extends React.Component {
         <Link
           to={{ pathname: '/cart', details: { product, qnt: counter } }}
         >
-          <button type="button"
+          <button
+            type="button"
             onClick={() => this.handleClick(this.props.location.details.product, 1)}
             data-testid="product-detail-add-to-cart"
           >

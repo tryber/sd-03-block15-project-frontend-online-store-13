@@ -56,7 +56,11 @@ class HomePage extends React.Component {
         <div className="searchbar-cart">
           <SearchBar onClick={this.searchChange} />
           <Link to="/cart">
-            <img data-testid="shopping-cart-button" src={cartIcon} className="cart-icon" alt="Icon of a Cart" />
+            <img
+              data-testid="shopping-cart-button"
+              src={cartIcon} className="cart-icon"
+              alt="Icon of a Cart"
+            />
           </Link>
         </div>
         <div className="product">

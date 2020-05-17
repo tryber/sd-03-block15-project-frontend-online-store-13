@@ -8,15 +8,15 @@ import './Cart.css';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: null };
+    this.state = { items: JSON.parse(localStorage.getItem('cart')) };
     this.removeItem = this.removeItem.bind(this);
   }
 
-  componentDidMount() {
-    if (localStorage.getItem('cart')) {
-      this.setState({ items: JSON.parse(localStorage.getItem('cart')) });
-    }
-  }
+  // componentWillMount() {
+  //   if (localStorage.getItem('cart')) {
+  //     this.setState({ items: JSON.parse(localStorage.getItem('cart')) });
+  //   }
+  // }
 
   removeItem(product) {
     const { items } = this.state;
