@@ -49,7 +49,7 @@ class HomePage extends React.Component {
       this.clickSearch();
     });
   }
-  
+
   render() {
     const { typedSearch, answer, categories, ableToSearch } = this.state;
     return (
