@@ -5,22 +5,22 @@ import './ProductList.css';
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { session: [] };
-    this.addToSession = this.addToSession.bind(this);
+    // this.state = { session: [] };
+    // this.addToSession = this.addToSession.bind(this);
   }
 
-  addToSession(product, qnt) {
-    const { session } = this.state;
-    const toAdd = {
-      product,
-      qnt,
-    };
-    this.setState((state) => ({ session: [...state.session, toAdd] }));
-    localStorage.setItem('cart', JSON.stringify([...session, toAdd]));
-  }
+  // addToSession(product, qnt) {
+  //   const { session } = this.state;
+  //   const toAdd = {
+  //     product,
+  //     qnt,
+  //   };
+  //   this.setState((state) => ({ session: [...state.session, toAdd] }));
+  //   localStorage.setItem('cart', JSON.stringify([...session, toAdd]));
+  // }
 
   render() {
-    const { search, apiAnswer } = this.props;
+    const { search, apiAnswer, onClick } = this.props;
     const products = apiAnswer;
     if (apiAnswer.results.length === 0) {
       return (
@@ -36,7 +36,7 @@ class ProductList extends React.Component {
             search={search}
             key={prod.id}
             product={prod}
-            handleClick={this.addToSession}
+            handleClick={onClick}
           />,
         )}
       </div>

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductDetails.css';
-import Quantity from '../components/Quantity';
+import Quantity from '../components/productDetails/Quantity';
 import ProductReview from '../components/productDetails/ProductReview';
+import CartIconQnt from '../components/homePage/CartIconQnt';
+import cartIcon from '../images/cart-icon.png';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class ProductDetails extends React.Component {
     };
     this.onIncrement = this.onIncrement.bind(this);
     this.onDecrement = this.onDecrement.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -27,15 +29,15 @@ class ProductDetails extends React.Component {
     this.setState((state) => ({ counter: Math.max(state.counter - 1, 1) }));
   }
 
-  handleClick(product, qnt) {
-    const { session } = this.state;
-    const toAdd = {
-      product,
-      qnt,
-    };
-    this.setState((state) => ({ session: [...state.session, toAdd] }));
-    localStorage.setItem('cart', JSON.stringify([...session, toAdd]));
-  }
+  // handleClick(product, qnt) {
+  //   const { session } = this.state;
+  //   const toAdd = {
+  //     product,
+  //     qnt,
+  //   };
+  //   this.setState((state) => ({ session: [...state.session, toAdd] }));
+  //   localStorage.setItem('cart', JSON.stringify([...session, toAdd]));
+  // }
 
   handleChange(opp) {
     if (opp) {
@@ -80,31 +82,43 @@ class ProductDetails extends React.Component {
   render() {
     const { attributes } = this.props.location.details.product;
     const { product, counter } = this.state;
+    const { func } = this.props.location;
     return (
-      <div className="product-details-page-container">
-        {this.productH1Name()}
-        <div className="produc-details-contents">
-          {this.productPhoto()}
-          <div className="product-details-right">
-            <h3>Especificações Técnicas</h3>
-            <ul>
-              {attributes.map((e) => (<li key={e.id}>{`${e.name}: ${e.value_name}`}</li>))}
-            </ul>
-          </div>
-        </div>
-        <Quantity prodQnt={this.handleChange} counter={counter} />
-        <Link
-          to={{ pathname: '/cart', details: { product, qnt: counter } }}
-        >
-          <button
-            type="button"
-            onClick={() => this.handleClick(this.props.location.details.product, 1)}
-            data-testid="product-detail-add-to-cart"
-          >
-            Adicionar ao Carrinho
-          </button>
+      <div>
+        <Link to="/cart">
+          <img
+            data-testid="shopping-cart-button"
+            src={cartIcon}
+            className="cart-icon"
+            alt="Icon of a Cart"
+          />
         </Link>
-        <ProductReview />
+        <CartIconQnt />
+        <div className="product-details-page-container">
+          {this.productH1Name()}
+          <div className="produc-details-contents">
+            {this.productPhoto()}
+            <div className="product-details-right">
+              <h3>Especificações Técnicas</h3>
+              <ul>
+                {attributes.map((e) => (<li key={e.id}>{`${e.name}: ${e.value_name}`}</li>))}
+              </ul>
+            </div>
+          </div>
+          <Quantity prodQnt={this.handleChange} counter={counter} />
+          <Link
+            to={{ pathname: '/cart', details: { product, qnt: counter } }}
+          >
+            <button
+              type="button"
+              onClick={() => func(this.props.location.details.product, counter)}
+              data-testid="product-detail-add-to-cart"
+            >
+              Adicionar ao Carrinho
+            </button>
+          </Link>
+          <ProductReview />
+        </div>
       </div>
     );
   }

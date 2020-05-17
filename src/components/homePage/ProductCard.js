@@ -17,6 +17,7 @@ class ProductCard extends React.Component {
           to={{
             pathname: `/product/${id}`,
             details: { product },
+            func: handleClick,
           }}
           data-testid="product-detail-link"
         >
