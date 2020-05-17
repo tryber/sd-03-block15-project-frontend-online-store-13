@@ -83,9 +83,6 @@ class ProductDetails extends React.Component {
     const { counter, product } = this.state;
     const { func } = this.props.location;
     return (
-      <Link
-        to={{ pathname: '/cart', details: { product, qnt: counter } }}
-      >
         <button
           type="button"
           onClick={() => func(this.props.location.details.product, counter)}
@@ -93,7 +90,6 @@ class ProductDetails extends React.Component {
         >
           Adicionar ao Carrinho
         </button>
-      </Link>
     );
   }
 
