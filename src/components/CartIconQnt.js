@@ -3,7 +3,7 @@ import React from 'react';
 class CartIconQnt extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { numDisplay: 0 }
+    this.state = { numDisplay: 0 };
   }
 
   componentDidMount() {
@@ -11,7 +11,7 @@ class CartIconQnt extends React.Component {
       const localstorageToArrOfObj = JSON.parse(localStorage.getItem('cart'));
       const sumQnt = localstorageToArrOfObj.map((e) => e.qnt)
       .reduce((acc, qtde) => (acc + qtde), 0);
-      this.setState({ numDisplay: sumQnt })
+      this.setState({ numDisplay: sumQnt });
     }
   }
 
