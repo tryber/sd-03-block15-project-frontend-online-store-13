@@ -1,4 +1,5 @@
 .productContainer {
   border: 1px solid grey;
+  margin: 5px;
   width: 200px;
 }

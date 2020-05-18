@@ -101,7 +101,6 @@ class HomePage extends React.Component {
     const { typedSearch, answer, categories, ableToSearch, numDisplay } = this.state;
     return (
       <div>
-        <header className="header">Sexta-feira 13 Store</header>
         <div className="searchbar-cart">
           <SearchBar onClick={this.searchChange} />
           <CartIconQnt numb={numDisplay} />

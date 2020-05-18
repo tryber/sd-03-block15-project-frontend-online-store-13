@@ -2,8 +2,12 @@
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 30px;
   width: auto;
+}
+
+.product-detail-container {
+  margin-top: 40px;
 }
 
 .produc-details-contents {

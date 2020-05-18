@@ -28,6 +28,7 @@ class SearchBar extends React.Component {
     return (
       <div>
         <input
+          className="searchBar"
           type="text"
           id="searchText"
           value={typedSearch}

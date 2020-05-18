@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './ProductDetails.css';
 import Quantity from '../components/productDetails/Quantity';
 import ProductReview from '../components/productDetails/ProductReview';
@@ -79,12 +78,9 @@ class ProductDetails extends React.Component {
   }
 
   addToCartButton() {
-    const { counter, product } = this.state;
+    const { counter } = this.state;
     const { func } = this.props.location;
     return (
-      <Link
-        to={{ pathname: '/cart', details: { product, qnt: counter } }}
-      >
         <button
           type="button"
           onClick={() => func(this.props.location.details.product, counter)}
@@ -92,7 +88,6 @@ class ProductDetails extends React.Component {
         >
           Adicionar ao Carrinho
         </button>
-      </Link>
     );
   }
 
@@ -102,7 +97,7 @@ class ProductDetails extends React.Component {
     const { numDisplay } = this.props.location;
     console.log(this.props);
     return (
-      <div>
+      <div className="product-detail-container">
         <CartIconQnt numb={numDisplay} />
         <div className="product-details-page-container">
           {this.productH1Name()}
