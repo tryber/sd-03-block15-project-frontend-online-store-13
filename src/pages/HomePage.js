@@ -26,7 +26,6 @@ class HomePage extends React.Component {
     this.addToSession = this.addToSession.bind(this);
     this.searchChange = this.searchChange.bind(this);
     this.choosedCategory = this.choosedCategory.bind(this);
-    this.alreadyHere = this.alreadyHere.bind(this);
   }
 
   componentDidMount() {
@@ -59,33 +58,28 @@ class HomePage extends React.Component {
     });
   }
 
-  alreadyHere(toAdd) {
-    const { session } = this.state;
-    const currentList = session;
-    currentList.forEach((item) => {
-      if (item.product.id === toAdd.product.id) {
-        return {
-          product: toAdd.product,
-          qnt: item.qnt + 1,
-        };
-      }
-      return toAdd;
-    });
-    this.updateNumDisplay();
-  }
-
   addToSession(product, qnt) {
-    const { session } = this.state;
     const toAdd = {
       product,
       qnt,
     };
-    this.setState((state) => ({ session: [...state.session, toAdd] }));
-    localStorage.setItem(
-      'cart',
-      JSON.stringify([...session, toAdd]),
-    );
-    this.updateNumDisplay();
+    if (this.state.session !== null) {
+      const currentList = this.state.session;
+      currentList.forEach((item, index) => {
+        if (item.product.id === toAdd.product.id) {
+          currentList[index] = {
+            product: toAdd.product,
+            qnt: item.qnt + 1,
+          };
+        } else {
+          this.setState((state) => ({ session: [...state.session, toAdd] }));
+          localStorage.setItem('cart', JSON.stringify([...this.state.session, toAdd]));
+        }
+      })
+    } else {
+      this.setState((state) => ({ session: [...state.session, toAdd] }));
+      localStorage.setItem('cart', JSON.stringify([...this.state.session, toAdd]));
+    }
   }
 
   updateNumDisplay() {
