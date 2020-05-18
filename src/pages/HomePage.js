@@ -20,7 +20,7 @@ class HomePage extends React.Component {
       categories: [],
       ableToSearch: false,
       answer: null,
-      session: [],
+      // session: [],
       numDisplay: 0,
     };
     this.addToSession = this.addToSession.bind(this);
@@ -59,28 +59,19 @@ class HomePage extends React.Component {
   }
 
   addToSession(product, qnt) {
-    const { session } = this.state;
+    // const { session } = this.state;
     const toAdd = {
       product,
       qnt,
     };
+    const currentCart = JSON.parse(localStorage.getItem('cart'));
     if (localStorage.length === 0) {
-      this.setState((state) => ({ session: [...session, toAdd] }));
       localStorage.setItem('cart', JSON.stringify([toAdd]));
     } else {
-      const localstorage = JSON.parse(localStorage.getItem('cart'));
-      localstorage.forEach((item, index) => {
-        if (item.product.id === toAdd.product.id) {
-          localstorage[index] = {
-            product: toAdd.product,
-            qnt: item.qnt + 1
-          }
-          localStorage.setItem('cart', JSON.stringify([...localstorage]));
-        } else {
-          this.setState((state) => ({ session: [...localstorage, toAdd] }));
-          localStorage.setItem('cart', JSON.stringify([...localstorage, toAdd]));
-        }
-      });
+      //const alreadyHere = currentCart.filter((item) => )
+      if (toAdd.qnt <= product.available_quantity){
+        localStorage.setItem('cart', JSON.stringify([...currentCart, toAdd]));
+      }
     }
     this.updateNumDisplay();
   }
