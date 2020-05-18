@@ -4,3 +4,15 @@
   justify-content: space-around;
   margin: 20px;
 }
+
+.product-name {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+}
+
+.total-price {
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 20px;
+}
