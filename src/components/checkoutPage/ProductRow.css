@@ -3,16 +3,19 @@
   flex-direction: column;
   padding: 10px;
 }
+
 .all-products-container-left {
   display: flex;
   flex-direction: row;
 }
+
 .all-products-container-right {
   display: flex;
   flex-direction: column;
   padding: 10px;
   
 }
+
 .total-price {
   padding-top: 1rem;
 }
