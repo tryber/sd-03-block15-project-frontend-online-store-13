@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import cartIcon from '../../images/cart-icon.png';
 
 class CartIconQnt extends React.Component {
-
   render() {
     const { numb } = this.props;
     return (

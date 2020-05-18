@@ -2,3 +2,24 @@
   border: 1px solid black;
   padding: 10px;
 }
+
+.buyers-info-input {
+  margin: 3px;
+}
+
+.buyers-info-input label {
+  width: max-content;
+}
+
+.buyers-info-input label input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.personal-data-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
