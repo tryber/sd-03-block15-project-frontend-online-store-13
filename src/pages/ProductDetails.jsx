@@ -99,7 +99,7 @@ class ProductDetails extends React.Component {
     const { numDisplay } = this.props.location;
     console.log(this.props);
     return (
-      <div>
+      <div className="product-detail-container">
         <CartIconQnt numb={numDisplay} />
         <div className="product-details-page-container">
           {this.productH1Name()}

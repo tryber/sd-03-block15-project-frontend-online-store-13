@@ -6,7 +6,7 @@ class CartIconQnt extends React.Component {
   render() {
     const { numb } = this.props;
     return (
-      <div>
+      <div className="cartIconQnt">
         <Link to="/cart">
           <img
             data-testid="shopping-cart-button"

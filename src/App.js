@@ -9,7 +9,7 @@ import CheckoutPage from './pages/CheckoutPage';
 function App() {
   return (
     <div className="App">
-      <header className="App-header" />
+      <header className="App-header">Sexta-feira 13 Store</header>
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage} />
