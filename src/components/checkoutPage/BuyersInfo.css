@@ -12,8 +12,8 @@
 }
 
 .buyers-info-input label input {
-  border-radius: 5px;
   border: 1px solid grey;
+  border-radius: 5px;
   padding: 5px;
   width: 100%;
 }
