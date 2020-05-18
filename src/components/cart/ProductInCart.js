@@ -27,7 +27,11 @@ class ProductInCart extends React.Component {
           <div className="product" key={product.product.id}>
             <button onClick={() => handleClick(product)}>X</button>
             <img src={product.product.thumbnail} alt="Product" />
-            <h3 data-testid="shopping-cart-product-name" className="product-name">{product.product.title}</h3>
+            <h3 
+            data-testid="shopping-cart-product-name" className="product-name"
+            >
+            {product.product.title}
+            </h3>
             <ChangeQnt
               qnt={product.qnt}
               max={product.product.available_quantity}
@@ -38,7 +42,12 @@ class ProductInCart extends React.Component {
         )}
         <p className="total-price">Valor Total da Compra: R${totalPrice.toFixed(2)}</p>
         <Link to="/checkout" data-testid="checkout-products">
-          <button className="end-shopping" type="button" onClick={this.handleLocalStorage}>Finalizar Compra</button>
+          <button 
+          className="end-shopping" 
+          type="button" 
+          onClick={this.handleLocalStorage}>
+          Finalizar Compra
+          </button>
         </Link>
       </div>
     );
