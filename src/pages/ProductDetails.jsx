@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import './ProductDetails.css';
 import Quantity from '../components/productDetails/Quantity';
 import ProductReview from '../components/productDetails/ProductReview';
@@ -13,6 +12,8 @@ class ProductDetails extends React.Component {
       counter: 1,
       // session: [],
     };
+    // this.addToSession = this.addToSession.bind(this);
+
     this.onIncrement = this.onIncrement.bind(this);
     this.onDecrement = this.onDecrement.bind(this);
     // this.handleClick = this.handleClick.bind(this);
@@ -21,11 +22,11 @@ class ProductDetails extends React.Component {
 
   onIncrement() {
     const { available_quantity: availableQuantity } = this.props.location.details.product;
-    this.setState((state) => ({ counter: Math.min(state.counter + 1, availableQuantity) }));
+    this.setState((state) => ({ qnt: Math.min(state.qnt + 1, availableQuantity) }));
   }
 
   onDecrement() {
-    this.setState((state) => ({ counter: Math.max(state.counter - 1, 1) }));
+    this.setState((state) => ({ qnt: Math.max(state.qnt - 1, 1) }));
   }
 
   // handleClick(product, qnt) {
