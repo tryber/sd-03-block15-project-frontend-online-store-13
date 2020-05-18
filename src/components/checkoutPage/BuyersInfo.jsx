@@ -21,17 +21,19 @@ class BuyersInfo extends React.Component {
 
   inputCreator(testId, htmlForID, title, type, name, value) {
     return (
-      <label htmlFor={htmlForID}>
-        <input
-          data-testid={testId}
-          type={type}
-          id={htmlForID}
-          name={name}
-          placeholder={title}
-          onChange={this.handleChange}
-          value={value}
-        />
-      </label>
+      <div className="buyers-info-input">
+        <label htmlFor={htmlForID}>
+          <input
+            data-testid={testId}
+            type={type}
+            id={htmlForID}
+            name={name}
+            placeholder={title}
+            onChange={this.handleChange}
+            value={value}
+          />
+        </label>
+      </div>
     );
   }
 

@@ -1,9 +1,40 @@
-.payment-method-container {
-  border: 1px solid black;
-  padding: 10px;
+@media(max-width: 375px) {
+
+  .payment-method-container {
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
+  .billet-credit-card {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+  }
+  
+  .billet-radio-icon label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .credit-card-icon {
+    margin-right: 1rem;
+  }
+
+  .credit-card-icon label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .credit-card-icon label img {
+    padding: 0.5rem;
+  }
+
+  .credit-card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
 }
 
-.billet-credit-card {
-  display: flex;
-  justify-content: flex-start;
-}

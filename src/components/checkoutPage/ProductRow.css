@@ -1,0 +1,22 @@
+.all-products-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.all-products-container-left {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.all-products-container-right {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.total-price {
+  padding-top: 1rem;
+}
