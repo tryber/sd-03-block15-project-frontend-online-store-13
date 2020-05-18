@@ -81,13 +81,13 @@ class ProductDetails extends React.Component {
     const { counter } = this.state;
     const { func } = this.props.location;
     return (
-        <button
-          type="button"
-          onClick={() => func(this.props.location.details.product, counter)}
-          data-testid="product-detail-add-to-cart"
-        >
-          Adicionar ao Carrinho
-        </button>
+      <button
+        type="button"
+        onClick={() => func(this.props.location.details.product, counter)}
+        data-testid="product-detail-add-to-cart"
+      >
+        Adicionar ao Carrinho
+      </button>
     );
   }
 

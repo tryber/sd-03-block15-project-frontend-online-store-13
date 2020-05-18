@@ -5,10 +5,10 @@
 .App-header {
   background-color: black;
   color: red;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium' , 'Arial Narrow' , Arial , sans-serif;
   font-size: xx-large;
   height: 40px;
-  margin-top: 0px;
+  margin-top: 0;
   position: fixed;
   text-align: center;
   width: 100%;
