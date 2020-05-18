@@ -70,9 +70,9 @@ class HomePage extends React.Component {
       localStorage.setItem('cart', JSON.stringify([toAdd]));
     } else {
       // const alreadyHere = currentCart.filter((item) => )
-    if (toAdd.qnt <= product.available_quantity) {
-      localStorage.setItem('cart', JSON.stringify([...currentCart, toAdd]));
-    }
+      if (toAdd.qnt <= product.available_quantity) {
+        localStorage.setItem('cart', JSON.stringify([...currentCart, toAdd]));
+      }
       console.log('Hi');
     }
     this.updateNumDisplay();
