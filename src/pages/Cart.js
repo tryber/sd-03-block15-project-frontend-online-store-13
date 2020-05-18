@@ -12,12 +12,6 @@ class Cart extends React.Component {
     this.removeItem = this.removeItem.bind(this);
   }
 
-  // componentWillMount() {
-  //   if (localStorage.getItem('cart')) {
-  //     this.setState({ items: JSON.parse(localStorage.getItem('cart')) });
-  //   }
-  // }
-
   removeItem(product) {
     const { items } = this.state;
     const curList = [...items];
