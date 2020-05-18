@@ -5,7 +5,7 @@ import './ProductList.css';
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { session: JSON.parse(localStorage.getItem('cart')) }
+    this.state = { session: JSON.parse(localStorage.getItem('cart')) };
     this.addToSession = this.addToSession.bind(this);
   }
 
@@ -26,7 +26,7 @@ class ProductList extends React.Component {
           this.setState((state) => ({ session: [...state.session, toAdd] }));
           localStorage.setItem('cart', JSON.stringify([...this.state.session, toAdd]));
         }
-      })
+      });
     } else {
       this.setState((state) => ({ session: [...state.session, toAdd] }));
       localStorage.setItem('cart', JSON.stringify([...this.state.session, toAdd]));
