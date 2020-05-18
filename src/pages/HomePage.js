@@ -32,6 +32,7 @@ class HomePage extends React.Component {
     getCategories().then((resp) => {
       this.setState({ categories: resp });
     });
+    this.updateNumDisplay();
   }
 
   searchChange(search) {
@@ -68,10 +69,11 @@ class HomePage extends React.Component {
     if (localStorage.length === 0) {
       localStorage.setItem('cart', JSON.stringify([toAdd]));
     } else {
-      //const alreadyHere = currentCart.filter((item) => )
-      if (toAdd.qnt <= product.available_quantity){
-        localStorage.setItem('cart', JSON.stringify([...currentCart, toAdd]));
-      }
+      // const alreadyHere = currentCart.filter((item) => )
+    if (toAdd.qnt <= product.available_quantity) {
+      localStorage.setItem('cart', JSON.stringify([...currentCart, toAdd]));
+    }
+      console.log('Hi');
     }
     this.updateNumDisplay();
   }
