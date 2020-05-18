@@ -59,27 +59,30 @@ class HomePage extends React.Component {
   }
 
   addToSession(product, qnt) {
+    const { session } = this.state;
     const toAdd = {
       product,
       qnt,
     };
-    if (this.state.session !== null) {
-      const currentList = this.state.session;
-      currentList.forEach((item, index) => {
-        if (item.product.id === toAdd.product.id) {
-          currentList[index] = {
-            product: toAdd.product,
-            qnt: item.qnt + 1,
-          };
-        } else {
-          this.setState((state) => ({ session: [...state.session, toAdd] }));
-          localStorage.setItem('cart', JSON.stringify([...this.state.session, toAdd]));
-        }
-      })
+    if (localStorage.length === 0) {
+      this.setState((state) => ({ session: [...session, toAdd] }));
+      localStorage.setItem('cart', JSON.stringify([toAdd]));
     } else {
-      this.setState((state) => ({ session: [...state.session, toAdd] }));
-      localStorage.setItem('cart', JSON.stringify([...this.state.session, toAdd]));
+      const localstorage = JSON.parse(localStorage.getItem('cart'));
+      localstorage.forEach((item, index) => {
+        if (item.product.id === toAdd.product.id) {
+          localstorage[index] = {
+            product: toAdd.product,
+            qnt: item.qnt + 1
+          }
+          localStorage.setItem('cart', JSON.stringify([...localstorage]));
+        } else {
+          this.setState((state) => ({ session: [...localstorage, toAdd] }));
+          localStorage.setItem('cart', JSON.stringify([...localstorage, toAdd]));
+        }
+      });
     }
+    this.updateNumDisplay();
   }
 
   updateNumDisplay() {
