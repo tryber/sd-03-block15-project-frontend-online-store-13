@@ -6,8 +6,6 @@
 .billet-credit-card {
   display: flex;
   flex-direction: column;
-  
-  /* justify-content: flex-start; */
 }
 
 .billet-radio-icon label {
