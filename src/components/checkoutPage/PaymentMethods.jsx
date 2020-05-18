@@ -1,5 +1,9 @@
 import React from 'react';
 import './PaymentMethods.css';
+import mastercard from '../../images/mastercard.png';
+import visa from '../../images/visa.png';
+import creditcard from '../../images/creditcard.png';
+import barras from '../../images/barras.png';
 
 class PaymentMethods extends React.Component {
   // constructor(props) {
@@ -13,18 +17,21 @@ class PaymentMethods extends React.Component {
   //   onChange(name, value);
   // }
 
-  creditCardInputCreator(title, htmlForId) {
+  creditCardInputCreator(title, htmlForId, src, alt) {
     return (
-      <label htmlFor={htmlForId}>
-        <input
-          type="radio"
-          onChange={this.handleChange}
-          name="payMethod"
-          id={htmlForId}
-          value={title}
-        />
-        {title}
-      </label>
+      <div className="credit-card-icon">
+        <label htmlFor={htmlForId}>
+          <input
+            type="radio"
+            onChange={this.handleChange}
+            name="payMethod"
+            id={htmlForId}
+            value={title}
+          />
+          {title}
+          <img src={src} alt={alt} />
+        </label>
+      </div>
     );
   }
 
@@ -34,23 +41,27 @@ class PaymentMethods extends React.Component {
         <h3>Método de Pagamento</h3>
         <div className="billet-credit-card">
           <div>
-            <h4>Boleto</h4>
-            <label htmlFor="billet">
-              <input
-                type="radio"
-                onChange={this.handleChange}
-                name="payMethod"
-                id="billet"
-                value="Boleto"
-              />
-              <img src="" alt="Código de barra" />
-            </label>
-          </div>
-          <div>
             <h4>Cartão de Crédito</h4>
-            {this.creditCardInputCreator('Visa', 'visa')}
-            {this.creditCardInputCreator('MasterCard', 'mastercard')}
-            {this.creditCardInputCreator('Elo', 'elo')}
+            <div className="credit-card-container">
+              {this.creditCardInputCreator('Visa', 'visa', visa, 'Credit Visa')}
+              {this.creditCardInputCreator('MasterCard', 'mastercard', mastercard, 'Credit Card MasterCard')}
+              {this.creditCardInputCreator('Elo', 'elo', creditcard, 'Credit Card Elo')}
+            </div>
+          </div>
+          <div className="billet-container">
+            <h4>Boleto</h4>
+            <div className="billet-radio-icon">
+              <label htmlFor="billet">
+                <input
+                  type="radio"
+                  onChange={this.handleChange}
+                  name="payMethod"
+                  id="billet"
+                  value="Boleto"
+                />
+                <img src={barras} alt="Código de barra" />
+              </label>
+            </div>
           </div>
         </div>
       </div>
