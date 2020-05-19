@@ -32,13 +32,6 @@
   width: 400px;
 }
 
-/* input {
-  border-radius: 5px;
-  height: 20px;
-  text-align: center;
-  width: 400px;
-} */
-
 .product-list-category {
   display: flex;
   justify-content: flex-start;
